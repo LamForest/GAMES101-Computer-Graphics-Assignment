@@ -150,20 +150,36 @@ void rst::rasterizer::draw(rst::pos_buf_id pos_buffer, rst::ind_buf_id ind_buffe
     for (auto& i : ind) //每个点
     {
         Triangle t;
-
+        //MVP 变换
         Eigen::Vector4f v[] = {
                 mvp * to_vec4(buf[i[0]], 1.0f), //b变为齐次坐标先
                 mvp * to_vec4(buf[i[1]], 1.0f),
                 mvp * to_vec4(buf[i[2]], 1.0f)
         };
+        //MVP之后，所有点都在[-1,1]^3的规范立方体中
 
+
+        //homogeneous division
         for (auto& vec : v) {
+            // std::cout << "Before division"<< std::endl<<vec << std::endl;
+            /*
+            在Homogeneous division之前，三个点的坐标分别为：
+            (   -4.82,     0,   6.82,    -7)
+            (       0,  -4.8,   6.82,    -7)
+            (    4.82,     0,   6.82,    -7)
+            之后：
+            (    0.68,     0,  -0.97,    1)
+            (       0,  0.68,   -0.97,   1)
+            (   -0.68,     0,   0.97,    1)
+            
+            */
             vec /= vec.w();
-            std::cout << vec << std::endl;
+            // std::cout << "After division"<< std::endl<<vec << std::endl;
         }
+        //division之后，w都等于1，每个点的z才对应它们的深度信息
 
 
-
+        //视口变换
         for (auto & vert : v)
         {
             vert.x() = 0.5*width*(vert.x()+1.0);
