@@ -5,3 +5,9 @@
 完成时间：2021-03-23
 
 待完成提高题
+
+### Assignment2
+![image](https://user-images.githubusercontent.com/17798738/112307344-ce315c80-8cdb-11eb-84fe-c9bded4d44eb.png)
+关于投影矩阵，书中的矩阵在作业中使用会使z值倒过来，具体原因不明。待补充
+完成时间2021-03-24
+
