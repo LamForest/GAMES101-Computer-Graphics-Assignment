@@ -32,8 +32,28 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float z
 {
     // TODO: Copy-paste your implementation from the previous assignment.
     Eigen::Matrix4f projection;
+    //复制了Ass1中的代码
+    float n = zNear, f = zFar;
+    float foY = (eye_fov * MY_PI / 180.0);
+    float t = abs(n) * tan(foY / 2.0);//abs必要，t一定大于0
+    float r = t * aspect_ratio; //r一定大于0
+
+    //github
+    projection << n / r ,   0,              0,          0,
+                    0   ,n /t,              0,          0,
+                    0   ,   0, (n+f) / (n-f) , 2*n*f / (n-f),
+                    0   ,   0,              -1,          0;  
+
+    //mine 重叠关系出错 明明跟书中的矩阵一样
+    // n = -n, f = -f;
+    // projection << n / r ,   0,              0,          0,
+    //             0   ,n /t,              0,          0,
+    //             0   ,   0, (n+f) / (n-f) , -2*n*f / (n-f),
+    //             0   ,   0,              1,          0; 
+
 
     return projection;
+
 }
 
 int main(int argc, const char** argv)
@@ -106,6 +126,7 @@ int main(int argc, const char** argv)
 
     while(key != 27)
     {
+        //z-buffer矩阵已经被初始化为无穷大
         r.clear(rst::Buffers::Color | rst::Buffers::Depth);
 
         r.set_model(get_model_matrix(angle));

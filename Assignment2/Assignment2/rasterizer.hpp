@@ -90,6 +90,7 @@ namespace rst
         std::map<int, std::vector<Eigen::Vector3i>> ind_buf;
         std::map<int, std::vector<Eigen::Vector3f>> col_buf;
 
+        //1d vector模拟2d frame_buf
         std::vector<Eigen::Vector3f> frame_buf;
 
         std::vector<float> depth_buf;

@@ -9,6 +9,8 @@
 #include <opencv2/opencv.hpp>
 #include <math.h>
 
+using std::endl;
+using std::cout;
 
 rst::pos_buf_id rst::rasterizer::load_positions(const std::vector<Eigen::Vector3f> &positions)
 {
@@ -39,10 +41,48 @@ auto to_vec4(const Eigen::Vector3f& v3, float w = 1.0f)
     return Vector4f(v3.x(), v3.y(), v3.z(), w);
 }
 
+//用于判断三角形inside时，需要保证顶点以顺时针方向保存
+static bool all_negative(float a, float b, float c){
+    // return (a < 0 && b < 0 && c < 0); //三角形边上的点不算在三角形内
+    return (a <= 0 && b <= 0 && c <= 0); //三角形边上的点算在三角形内
+}
 
-static bool insideTriangle(int x, int y, const Vector3f* _v)
+//用于判断三角形inside时，需要保证顶点以逆时针方向保存
+static bool all_positive(float a, float b, float c){
+    // return (a < 0 && b < 0 && c < 0); //三角形边上的点不算在三角形内
+    return (a >= 0 && b >= 0 && c >= 0); //三角形边上的点算在三角形内
+}
+
+static bool insideTriangle(float x, float y, const Triangle& tri)
 {   
     // TODO : Implement this function to check if the point (x, y) is inside the triangle represented by _v[0], _v[1], _v[2]
+    // const auto v_xy = tri.v;
+    const auto &v_xy = tri.toVector2();
+    Eigen::Vector2f side_1 = v_xy[1] - v_xy[0];
+    Eigen::Vector2f side_2 = v_xy[2] - v_xy[1];
+    Eigen::Vector2f side_3 = v_xy[0] - v_xy[2];
+
+    std::vector<Vector2f> sides{side_1,side_2,side_3};
+
+    Eigen::Vector2f p(x,y);
+
+    std::vector<float> cross_product_zs{0,0,0}; //3次叉乘的z的结果
+
+    // const int num = v_xy.size();
+    const int num = 3;
+    for (int i = 0; i < num; ++i){
+        Vector2f v = p - v_xy[i]; //AP, BP, CP，顶点到p的向量
+
+        //这里我们不用把p sides都变成3维的向量
+        //因为叉乘的结果x,y都为0，我们只关注z即可
+        float cross_result_z = sides[i].x() * v.y() - sides[i].y() * v.x();
+        cross_product_zs[i] = cross_result_z;
+        // printf("cross with sides[%d] = ", i);
+        // cout << cross_result_z << endl;
+    }
+
+    return all_positive(cross_product_zs[0], cross_product_zs[1], cross_product_zs[2]);
+    
 }
 
 static std::tuple<float, float, float> computeBarycentric2D(float x, float y, const Vector3f* v)
@@ -73,8 +113,11 @@ void rst::rasterizer::draw(pos_buf_id pos_buffer, ind_buf_id ind_buffer, col_buf
         };
         //Homogeneous division
         for (auto& vec : v) {
-            vec /= vec.w();
+            cout << "Before division Tri " <<  "vertices:" <<  endl << vec << endl;
+            vec /= vec.w(); //返回vec[3]即齐次坐标
+            cout << "After:Tri " <<  "vertices:" <<  endl << vec << endl;
         }
+        
         //Viewport transformation
         for (auto & vert : v)
         {
@@ -85,7 +128,7 @@ void rst::rasterizer::draw(pos_buf_id pos_buffer, ind_buf_id ind_buffer, col_buf
 
         for (int i = 0; i < 3; ++i)
         {
-            t.setVertex(i, v[i].head<3>());
+            t.setVertex(i, v[i].head<3>()); //这里应该是只获得xyz坐标，不要w
             t.setVertex(i, v[i].head<3>());
             t.setVertex(i, v[i].head<3>());
         }
@@ -104,10 +147,79 @@ void rst::rasterizer::draw(pos_buf_id pos_buffer, ind_buf_id ind_buffer, col_buf
 
 //Screen space rasterization
 void rst::rasterizer::rasterize_triangle(const Triangle& t) {
+    //三角形的三个顶点的齐次坐标表示
+    //v.size() == 3, 每个元素是Vector4
     auto v = t.toVector4();
+
     
     // TODO : Find out the bounding box of current triangle.
     // iterate through the pixel and find if the current pixel is inside the triangle
+    //1. find bounding box
+    float max_x = 0.0, max_y = 0.0, min_x = this->width - 1, min_y = this->height - 1;
+    for (const auto & vertex:v){
+        min_x = std::min(vertex.x(), min_x);
+        min_y = std::min(vertex.y(), min_y);
+        max_x = std::max(vertex.x(), max_x);
+        max_y = std::max(vertex.y(), max_y);
+    }
+
+    int i_min_x = std::floor(min_x);
+    int i_min_y = std::floor(min_y);
+    int i_max_x = std::ceil(max_x);
+    int i_max_y = std::ceil(max_y);
+
+    printf("Tri: [(%.2f, %.2f, %.2f), (%.2f, %.2f, %.2f), (%.2f, %.2f, %.2f) ];\nBBBox : x[%d, %d] x y[%d, %d]\n",
+        v[0].x(), v[0].y(), v[0].z(),
+        v[1].x(), v[1].y(), v[1].z(),
+        v[2].x(), v[2].y(), v[2].z(),
+        i_min_x, i_max_x, i_min_y, i_max_y
+    );
+
+
+    //2. z-buffer
+    int inside_cnt = 0;
+    for(int x = i_min_x; x < i_max_x; ++x){
+        for(int y = i_min_y; y < i_max_y; ++y){
+            float center_x = x + 0.5, center_y = y + 0.5;
+            bool is_inside = insideTriangle(x, y, t);
+
+            if(is_inside){
+                //debug
+                // printf("P[%.2f, %.2f] in Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) ]\n", 
+                //     center_x, center_y, 
+                //     v[0].x(), v[0].y(),
+                //     v[1].x(), v[1].y(),
+                //     v[2].x(), v[2].y()
+                // );
+                inside_cnt += 1;
+
+                //因为我们只知道三角形每个顶点的z
+                //但是不知道每个像素的z
+                //所以要插值计算
+                auto[alpha, beta, gamma] = computeBarycentric2D(x, y, t.v);
+                float w_reciprocal = 1.0/(alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
+                float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
+                z_interpolated *= w_reciprocal;
+                //断言，防止访问depth_buf越界
+                assert(x < this->width );
+                assert(y < this->height );
+                if(z_interpolated < this->depth_buf[get_index(x, y)] ){
+                    this->depth_buf[get_index(x, y)] = z_interpolated;
+
+                    //将frame_buf对应像素涂成getColor()
+                    set_pixel(Vector3f(x,y,0), t.getColor() );
+                } 
+            }
+        }
+    }
+    printf("inside cnt [%d] for Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) \n",
+        inside_cnt,
+        v[0].x(), v[0].y(),
+        v[1].x(), v[1].y(),
+        v[2].x(), v[2].y()
+    );
+
+
 
     // If so, use the following code to get the interpolated z value.
     //auto[alpha, beta, gamma] = computeBarycentric2D(x, y, t.v);
@@ -133,6 +245,7 @@ void rst::rasterizer::set_projection(const Eigen::Matrix4f& p)
     projection = p;
 }
 
+//1. z-buffer矩阵被初始化为无穷大
 void rst::rasterizer::clear(rst::Buffers buff)
 {
     if ((buff & rst::Buffers::Color) == rst::Buffers::Color)
@@ -147,8 +260,8 @@ void rst::rasterizer::clear(rst::Buffers buff)
 
 rst::rasterizer::rasterizer(int w, int h) : width(w), height(h)
 {
-    frame_buf.resize(w * h);
-    depth_buf.resize(w * h);
+    frame_buf.resize(w * h); //用一维vector模拟二维屏幕
+    depth_buf.resize(w * h); //同上
 }
 
 int rst::rasterizer::get_index(int x, int y)

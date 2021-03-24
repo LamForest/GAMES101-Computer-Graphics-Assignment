@@ -49,3 +49,10 @@ std::array<Vector4f, 3> Triangle::toVector4() const
     std::transform(std::begin(v), std::end(v), res.begin(), [](auto& vec) { return Eigen::Vector4f(vec.x(), vec.y(), vec.z(), 1.f); });
     return res;
 }
+
+std::array<Vector2f, 3> Triangle::toVector2() const
+{
+    std::array<Eigen::Vector2f, 3> res;
+    std::transform(std::begin(v), std::end(v), res.begin(), [](auto& vec) { return Eigen::Vector2f(vec.x(), vec.y()); });
+    return res;
+}
