@@ -4,6 +4,7 @@
 #include "rasterizer.hpp"
 #include "global.hpp"
 #include "Triangle.hpp"
+#include <chrono>
 
 constexpr double MY_PI = 3.1415926;
 
@@ -61,14 +62,18 @@ int main(int argc, const char** argv)
     float angle = 0;
     bool command_line = false;
     std::string filename = "output.png";
+    int msaa = 1;
 
-    if (argc == 2)
+    if (argc >= 2)
     {
         command_line = true;
         filename = std::string(argv[1]);
-    }
+        if(argc == 3){
+            msaa = std::stoi(argv[2]);
+        }
 
-    rst::rasterizer r(700, 700);
+    } 
+    rst::rasterizer r(700, 700, msaa);
 
     Eigen::Vector3f eye_pos = {0,0,5};
 
@@ -108,6 +113,7 @@ int main(int argc, const char** argv)
 
     if (command_line)
     {
+        auto start = std::chrono::high_resolution_clock::now();
         r.clear(rst::Buffers::Color | rst::Buffers::Depth);
 
         r.set_model(get_model_matrix(angle));
@@ -121,6 +127,9 @@ int main(int argc, const char** argv)
 
         cv::imwrite(filename, image);
 
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::seconds >(end - start);
+        std::cout << msaa <<"x msaa cost " << duration.count() << " seconds" << std::endl;
         return 0;
     }
 

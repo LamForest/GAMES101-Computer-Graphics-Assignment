@@ -113,9 +113,9 @@ void rst::rasterizer::draw(pos_buf_id pos_buffer, ind_buf_id ind_buffer, col_buf
         };
         //Homogeneous division
         for (auto& vec : v) {
-            cout << "Before division Tri " <<  "vertices:" <<  endl << vec << endl;
+            // cout << "Before division Tri " <<  "vertices:" <<  endl << vec << endl;
             vec /= vec.w(); //返回vec[3]即齐次坐标
-            cout << "After:Tri " <<  "vertices:" <<  endl << vec << endl;
+            // cout << "After:Tri " <<  "vertices:" <<  endl << vec << endl;
         }
         
         //Viewport transformation
@@ -174,50 +174,82 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
         v[2].x(), v[2].y(), v[2].z(),
         i_min_x, i_max_x, i_min_y, i_max_y
     );
+    //generate offsets
+    std::vector<std::array<float, 2> > offsets ;
+    //msaa_coef = msaa_argv ^ 2
+    offsets.resize(this->msaa_coef);
+    float unit = 1.0f / (this->msaa_argv * 2.0f);
+    for(int i = 0; i < this->msaa_argv; ++i){
+        for(int j = 0; j < this->msaa_argv; ++j){
+            offsets[i * this->msaa_argv + j] = 
+                {(i*2 + 1)*unit, (j*2 + 1) * unit};
+            // printf("offset[%d, %d] : %.2f, %.2f", i, j, offsets[i*msaa_argv + j][0], offsets[i*msaa_argv + j][1]);
+        }
+    }
 
+    assert(offsets.size() == this->msaa_coef);
 
     //2. z-buffer
     int inside_cnt = 0;
     for(int x = i_min_x; x < i_max_x; ++x){
         for(int y = i_min_y; y < i_max_y; ++y){
-            float center_x = x + 0.5, center_y = y + 0.5;
-            bool is_inside = insideTriangle(x, y, t);
+            //msaa sample
+            for(int ith_sample = 0; ith_sample < this->msaa_coef; ++ith_sample){
+                float sample_x = (float)x + offsets[ith_sample][0];
+                float sample_y = (float)y + offsets[ith_sample][1];
+                // float center_x = x + 0.5, center_y = y + 0.5;
+                bool is_inside = insideTriangle(sample_x, sample_y, t);
 
-            if(is_inside){
-                //debug
-                // printf("P[%.2f, %.2f] in Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) ]\n", 
-                //     center_x, center_y, 
-                //     v[0].x(), v[0].y(),
-                //     v[1].x(), v[1].y(),
-                //     v[2].x(), v[2].y()
-                // );
-                inside_cnt += 1;
+                if(is_inside){
+                    //debug
+                    // printf("P[%.2f, %.2f] in Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) ]\n", 
+                    //     center_x, center_y, 
+                    //     v[0].x(), v[0].y(),
+                    //     v[1].x(), v[1].y(),
+                    //     v[2].x(), v[2].y()
+                    // );
+                    inside_cnt += 1;
 
-                //因为我们只知道三角形每个顶点的z
-                //但是不知道每个像素的z
-                //所以要插值计算
-                auto[alpha, beta, gamma] = computeBarycentric2D(x, y, t.v);
-                float w_reciprocal = 1.0/(alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
-                float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
-                z_interpolated *= w_reciprocal;
-                //断言，防止访问depth_buf越界
-                assert(x < this->width );
-                assert(y < this->height );
-                if(z_interpolated < this->depth_buf[get_index(x, y)] ){
-                    this->depth_buf[get_index(x, y)] = z_interpolated;
+                    //因为我们只知道三角形每个顶点的z
+                    //但是不知道每个像素的z
+                    //所以要插值计算
+                    auto [alpha, beta, gamma] = computeBarycentric2D(sample_x, sample_y, t.v);
+                    float w_reciprocal = 1.0/(alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
+                    float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
+                    z_interpolated *= w_reciprocal;
+                    //断言，防止访问depth_buf越界
+                    assert(x < this->width );
+                    assert(y < this->height );
+                    if(z_interpolated < this->depth_buf[get_msaa_index(x, y, ith_sample)] ){
+                        this->depth_buf[get_msaa_index(x, y, ith_sample)] = z_interpolated;
 
-                    //将frame_buf对应像素涂成getColor()
-                    set_pixel(Vector3f(x,y,0), t.getColor() );
-                } 
+                        //将frame_buf对应像素涂成getColor()
+                        set_sample_color(x, y, ith_sample, t.getColor() );
+                    } 
+                }
             }
         }
     }
-    printf("inside cnt [%d] for Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) \n",
-        inside_cnt,
-        v[0].x(), v[0].y(),
-        v[1].x(), v[1].y(),
-        v[2].x(), v[2].y()
-    );
+    // printf("inside cnt [%d] for Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) \n",
+    //     inside_cnt,
+    //     v[0].x(), v[0].y(),
+    //     v[1].x(), v[1].y(),
+    //     v[2].x(), v[2].y()
+    // );
+
+    //3. average sample colors to get pixel color
+    for(int x = i_min_x; x < i_max_x; ++x){
+        for(int y = i_min_y; y < i_max_y; ++y){
+            Vector3f avg_color(0.0f, 0.0f, 0.0f);
+            for(int ith_sample = 0; ith_sample < this->msaa_coef; ++ith_sample){
+                //向量应该使可加的吧
+                avg_color += this->msaa_frame_buf[get_msaa_index(x,y,ith_sample)];
+            }
+            avg_color /= float(this->msaa_coef);
+            this->set_pixel(x, y, avg_color);
+        }
+    }
+     
 
 
 
@@ -246,11 +278,13 @@ void rst::rasterizer::set_projection(const Eigen::Matrix4f& p)
 }
 
 //1. z-buffer矩阵被初始化为无穷大
+//msaa修改，使其成为4倍大
 void rst::rasterizer::clear(rst::Buffers buff)
 {
     if ((buff & rst::Buffers::Color) == rst::Buffers::Color)
     {
         std::fill(frame_buf.begin(), frame_buf.end(), Eigen::Vector3f{0, 0, 0});
+        std::fill(msaa_frame_buf.begin(), msaa_frame_buf.end(), Eigen::Vector3f{0, 0, 0});
     }
     if ((buff & rst::Buffers::Depth) == rst::Buffers::Depth)
     {
@@ -258,22 +292,50 @@ void rst::rasterizer::clear(rst::Buffers buff)
     }
 }
 
-rst::rasterizer::rasterizer(int w, int h) : width(w), height(h)
+rst::rasterizer::rasterizer(int w, int h, int msaa) : 
+width(w), height(h), msaa_coef(msaa * msaa), msaa_argv(msaa)
 {
     frame_buf.resize(w * h); //用一维vector模拟二维屏幕
-    depth_buf.resize(w * h); //同上
+    msaa_frame_buf.resize(w * h * msaa_coef ); //用一维vector模拟二维屏幕
+    depth_buf.resize(w * h * msaa_coef); //同上
 }
 
+//排列方式为 :
+//首先是y = height - 1这一行的所有pixel
+//然后是y = height - 2这一行的所有pixel
+//以此类推
 int rst::rasterizer::get_index(int x, int y)
 {
     return (height-1-y)*width + x;
 }
 
-void rst::rasterizer::set_pixel(const Eigen::Vector3f& point, const Eigen::Vector3f& color)
+//三维数组偏移
+int rst::rasterizer::get_msaa_index(int x, int y, int ith_sample)
+{
+    return (get_index(x, y)) * msaa_coef + ith_sample;
+}
+
+// int rst::rasterizer::get_index(int x, int y)
+// {
+//     return (height-1-y)*width + x;
+// }
+
+void rst::rasterizer::set_pixel(int x, int y, const Eigen::Vector3f& color)
 {
     //old index: auto ind = point.y() + point.x() * width;
-    auto ind = (height-1-point.y())*width + point.x();
+    // auto ind = (height-1-point.y())*width + point.x();
+    int ind = get_index(x, y);
     frame_buf[ind] = color;
+
+}
+
+//set color in msaa_frame_buf
+void rst::rasterizer::set_sample_color(int x, int y, int ith_sample, const Eigen::Vector3f& color)
+{
+    //old index: auto ind = point.y() + point.x() * width;
+    // auto ind = (height-1-point.y())*width + point.x();
+    int ind = get_msaa_index(x, y, ith_sample);
+    msaa_frame_buf[ind] = color;
 
 }
 
