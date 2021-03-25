@@ -1,0 +1,22 @@
+[
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\main.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment3-Windows\\Code\\main.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/main.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\rasterizer.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment3-Windows\\Code\\rasterizer.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/rasterizer.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\Triangle.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment3-Windows\\Code\\Triangle.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/Triangle.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\Texture.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment3-Windows\\Code\\Texture.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/Texture.cpp"
+}
+]

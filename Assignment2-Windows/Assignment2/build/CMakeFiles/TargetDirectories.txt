@@ -1,0 +1,4 @@
+D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment2-Windows/Assignment2/build/CMakeFiles/edit_cache.dir
+D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment2-Windows/Assignment2/build/CMakeFiles/Rasterizer.dir
+D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment2-Windows/Assignment2/build/CMakeFiles/cross.dir
+D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment2-Windows/Assignment2/build/CMakeFiles/rebuild_cache.dir

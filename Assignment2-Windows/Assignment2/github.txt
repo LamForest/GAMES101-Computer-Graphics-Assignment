@@ -1,0 +1,68 @@
+frame count: 96
+Before division Tri vertices:
+4.82843
+      0
+6.82765
+      7
+After:Tri vertices:
+0.689775
+       0
+0.975379
+       1
+Before division Tri vertices:
+      0
+4.82843
+6.82765
+      7
+After:Tri vertices:
+       0
+0.689775
+0.975379
+       1
+Before division Tri vertices:
+-4.82843
+       0
+ 6.82765
+       7
+After:Tri vertices:
+-0.689775
+        0
+ 0.975379
+        1
+Tri: [(591.42, 350.00, 49.39), (350.00, 591.42, 49.39), (108.58, 350.00, 49.39) ];
+BBBox : x[108, 592] x y[350, 592]
+inside cnt [58564] for Tri[(591.42, 350.00), (350.00, 591.42), (108.58, 350.00) 
+Before division Tri vertices:
+ 8.44975
+-2.41421
+ 9.83968
+      10
+After:Tri vertices:
+ 0.844975
+-0.241421
+ 0.983968
+        1
+Before division Tri vertices:
+6.03553
+3.62132
+9.83968
+     10
+After:Tri vertices:
+0.603553
+0.362132
+0.983968
+       1
+Before division Tri vertices:
+-2.41421
+ 1.20711
+ 9.83968
+      10
+After:Tri vertices:
+-0.241421
+ 0.120711
+ 0.983968
+        1
+Tri: [(645.74, 265.50, 49.60), (561.24, 476.75, 49.60), (265.50, 392.25, 49.60) ];
+BBBox : x[265, 646] x y[265, 477]
+inside cnt [34756] for Tri[(645.74, 265.50), (561.24, 476.75), (265.50, 392.25) 
+

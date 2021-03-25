@@ -49,5 +49,6 @@
         "set": "cpp",
         "iomanip": "cpp",
         "chrono": "cpp"
-    }
+    },
+    "cmake.generator": "MinGW Makefiles"
 }

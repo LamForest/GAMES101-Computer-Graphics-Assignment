@@ -1,0 +1,3 @@
+"D:\gao_tianlin\New Folder\cmake3_20\bin\cmake.exe" -E rm -f CMakeFiles\cross.dir/objects.a
+D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\ar.exe cr CMakeFiles\cross.dir/objects.a @CMakeFiles\cross.dir\objects1.rsp
+D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\cross.dir/objects.a -Wl,--no-whole-archive -o cross.exe -Wl,--out-implib,libcross.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cross.dir\linklibs.rsp
