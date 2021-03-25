@@ -28,10 +28,12 @@
 **对比实验**：
 
 不同msaa 实际花费的实际时间为:
->2x msaa cost 9 seconds
-4x msaa cost 39 seconds
-6x msaa cost 87 seconds
-8x msaa cost 161 seconds
+
+- 2x msaa cost 9 seconds
+- 4x msaa cost 39 seconds
+- 6x msaa cost 87 seconds
+- 8x msaa cost 161 seconds
+
 符合上面对于时间代价的估算
 
 值得注意的：
