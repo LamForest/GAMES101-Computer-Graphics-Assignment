@@ -62,7 +62,7 @@ int main(int argc, const char** argv)
     float angle = 0;
     bool command_line = false;
     std::string filename = "output.png";
-    int msaa = 1;
+    int msaa = 2;
 
     if (argc >= 2)
     {
