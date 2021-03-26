@@ -50,8 +50,19 @@ Eigen::Matrix4f get_model_matrix(float angle)
 Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float zNear, float zFar)
 {
     // TODO: Use the same projection matrix from the previous assignments
+    Eigen::Matrix4f projection;
+    //复制了Ass1中的代码
+    float n = zNear, f = zFar;
+    float foY = (eye_fov * MY_PI / 180.0);
+    float t = abs(n) * tan(foY / 2.0);//abs必要，t一定大于0
+    float r = t * aspect_ratio; //r一定大于0
 
-    
+    //github
+    projection << n / r ,   0,              0,          0,
+                    0   ,n /t,              0,          0,
+                    0   ,   0, (n+f) / (n-f) , 2*n*f / (n-f),
+                    0   ,   0,              -1,          0; 
+    return projection;
 }
 
 Eigen::Vector3f vertex_shader(const vertex_shader_payload& payload)
@@ -59,8 +70,12 @@ Eigen::Vector3f vertex_shader(const vertex_shader_payload& payload)
     return payload.position;
 }
 
+//normal shader就是根据不同的法向量生成不同的颜色
+//法向量方向相同，则颜色相同，方向不同则颜色不同
+//最后的效果就是随着牛牛表面法向量方向的改变，颜色也逐渐改变
 Eigen::Vector3f normal_fragment_shader(const fragment_shader_payload& payload)
 {
+    //+(1,1,1)什么意思
     Eigen::Vector3f return_color = (payload.normal.head<3>().normalized() + Eigen::Vector3f(1.0f, 1.0f, 1.0f)) / 2.f;
     Eigen::Vector3f result;
     result << return_color.x() * 255, return_color.y() * 255, return_color.z() * 255;
@@ -238,6 +253,7 @@ Eigen::Vector3f bump_fragment_shader(const fragment_shader_payload& payload)
 
     return result_color * 255.f;
 }
+
 
 int main(int argc, const char** argv)
 {

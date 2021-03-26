@@ -163,6 +163,7 @@ static bool insideTriangle(int x, int y, const Vector4f* _v){
     return false;
 }
 
+//在2d屏幕上，也就是说，三角形顶点只用到了x,y坐标
 static std::tuple<float, float, float> computeBarycentric2D(float x, float y, const Vector4f* v){
     float c1 = (x*(v[1].y() - v[2].y()) + (v[2].x() - v[1].x())*y + v[1].x()*v[2].y() - v[2].x()*v[1].y()) / (v[0].x()*(v[1].y() - v[2].y()) + (v[2].x() - v[1].x())*v[0].y() + v[1].x()*v[2].y() - v[2].x()*v[1].y());
     float c2 = (x*(v[2].y() - v[0].y()) + (v[0].x() - v[2].x())*y + v[2].x()*v[0].y() - v[0].x()*v[2].y()) / (v[1].x()*(v[2].y() - v[0].y()) + (v[0].x() - v[2].x())*v[1].y() + v[2].x()*v[0].y() - v[0].x()*v[2].y());
@@ -170,15 +171,39 @@ static std::tuple<float, float, float> computeBarycentric2D(float x, float y, co
     return {c1,c2,c3};
 }
 
+struct InterpolateWithPerspectiveCorrect{
+    float alpha;
+    float beta;
+    float  gamma;
+    float w_reciprocal;
+
+    const Vector4f *v;
+
+    InterpolateWithPerspectiveCorrect(float alpha, float beta, float gamma, float w_reciprocal, const Vector4f *v) 
+    : alpha(alpha), beta(beta), gamma(gamma), w_reciprocal(w_reciprocal), v(v)
+    {
+        
+    }
+    
+    template <typename T>
+    T interpolate(T I_a, T I_b, T I_c){
+        T I_interpolated = alpha * I_a / v[0].w() + beta * I_b / v[1].w() + gamma * I_c / v[2].w();
+        I_interpolated *= w_reciprocal;
+        return I_interpolated;
+    }
+
+};
+
 void rst::rasterizer::draw(std::vector<Triangle *> &TriangleList) {
 
     float f1 = (50 - 0.1) / 2.0;
     float f2 = (50 + 0.1) / 2.0;
-
+    printf("len of TriList is %d\n", TriangleList.size());
     Eigen::Matrix4f mvp = projection * view * model;
     for (const auto& t:TriangleList)
     {
-        Triangle newtri = *t;
+        //clone of tri
+        Triangle newtri = *t; 
 
         std::array<Eigen::Vector4f, 3> mm {
                 (view * model * t->v[0]),
@@ -186,25 +211,34 @@ void rst::rasterizer::draw(std::vector<Triangle *> &TriangleList) {
                 (view * model * t->v[2])
         };
 
+        //view坐标
         std::array<Eigen::Vector3f, 3> viewspace_pos;
 
+        //View/model 变换不会改变w的值，w仍为1，所以可以直接舍弃w的坐标
         std::transform(mm.begin(), mm.end(), viewspace_pos.begin(), [](auto& v) {
             return v.template head<3>();
         });
 
+        //mvp变换后的坐标
         Eigen::Vector4f v[] = {
                 mvp * t->v[0],
                 mvp * t->v[1],
                 mvp * t->v[2]
         };
         //Homogeneous division
+        //Ass2这里是vec /= vec.w();
+        //Ass3这里就变成了不处理vec.w()
+        //疑惑？
         for (auto& vec : v) {
             vec.x()/=vec.w();
             vec.y()/=vec.w();
             vec.z()/=vec.w();
         }
 
+        //法向量变换矩阵
         Eigen::Matrix4f inv_trans = (view * model).inverse().transpose();
+
+        //view space 中每个顶点的法向量，需要normalize吗？还是根本不关心
         Eigen::Vector4f n[] = {
                 inv_trans * to_vec4(t->normal[0], 0.0f),
                 inv_trans * to_vec4(t->normal[1], 0.0f),
@@ -219,12 +253,15 @@ void rst::rasterizer::draw(std::vector<Triangle *> &TriangleList) {
             vert.z() = vert.z() * f1 + f2;
         }
 
+
+        //newtri是三角形再在屏幕空间中的表示
         for (int i = 0; i < 3; ++i)
         {
             //screen space coordinates
             newtri.setVertex(i, v[i]);
         }
 
+        //newtri在屏幕空间，但是NormalVector是在view Space
         for (int i = 0; i < 3; ++i)
         {
             //view space normal
@@ -268,6 +305,113 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
     // float Z = 1.0 / (alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
     // float zp = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
     // zp *= Z;
+
+
+    
+    // TODO : Find out the bounding box of current triangle.
+    // iterate through the pixel and find if the current pixel is inside the triangle
+    //1. find bounding box
+    float max_x = 0.0, max_y = 0.0, min_x = this->width - 1, min_y = this->height - 1;
+    for (const auto & vertex:t.v){
+        min_x = std::min(vertex.x(), min_x);
+        min_y = std::min(vertex.y(), min_y);
+        max_x = std::max(vertex.x(), max_x);
+        max_y = std::max(vertex.y(), max_y);
+    }
+
+    int i_min_x = std::floor(min_x);
+    int i_min_y = std::floor(min_y);
+    int i_max_x = std::ceil(max_x);
+    int i_max_y = std::ceil(max_y);
+
+    const auto &v = t.v; //只是为了少写一个t.
+    printf("Tri: [(%.2f, %.2f, %.2f, %.2f), (%.2f, %.2f, %.2f, %.2f), (%.2f, %.2f, %.2f, %.2f) ];\nBBBox : x[%d, %d] x y[%d, %d]\n",
+        v[0].x(), v[0].y(), v[0].z(),v[0].w(),
+        v[1].x(), v[1].y(), v[1].z(),v[1].w(),
+        v[2].x(), v[2].y(), v[2].z(),v[2].w(),
+        i_min_x, i_max_x, i_min_y, i_max_y
+    );
+
+
+    //2. z-buffer
+    int inside_cnt = 0;
+    for(int x = i_min_x; x < i_max_x; ++x){
+        for(int y = i_min_y; y < i_max_y; ++y){
+            float center_x = x + 0.5, center_y = y + 0.5;
+            bool is_inside = insideTriangle(x, y, t.v);
+
+            if(is_inside){
+                //debug
+                // printf("P[%.2f, %.2f] in Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) ]\n", 
+                //     center_x, center_y, 
+                //     v[0].x(), v[0].y(),
+                //     v[1].x(), v[1].y(),
+                //     v[2].x(), v[2].y()
+                // );
+                inside_cnt += 1;
+
+                //因为我们只知道三角形每个顶点的z
+                //但是不知道每个像素的z
+                //所以要插值计算
+                //注意Ass2这里v.w()都是1
+                //而Ass3中v.w()不为1，不过computeBarycentric2D
+                float alpha, beta, gamma; //ERROR:structure binding cannot be captured
+                std::tie(alpha, beta, gamma) = computeBarycentric2D(center_x, center_y, t.v);
+                
+                //这里其实做了一个透视插值误差修正：
+                //Ass2中在homogenous division这一步，将w也变换为了1，所以Ass2中其实没有修正
+                //Ass3中w没有做除法，所以有修正。
+                //这和https://zhuanlan.zhihu.com/p/144331875 的Eq. 16完全一致
+                float w_reciprocal = 1.0/(alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
+                // float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
+                // z_interpolated *= w_reciprocal;
+
+
+                InterpolateWithPerspectiveCorrect interpolator(alpha,beta,gamma, w_reciprocal, v);
+                // auto correctTextureFloat = [=](float I_a, float I_b, float I_c) ->float{
+                //     float I_interpolated = alpha * I_a / v[0].w() + beta * I_b / v[1].w() + gamma * I_c / v[2].w();
+                //     I_interpolated *= w_reciprocal;
+                //     return I_interpolated;
+                // };
+
+                // auto correctTextureVector3f = [=](Vector3f I_a, Vector3f I_b, Vector3f I_c) ->Vector3f{
+                    
+                //     Vector3f I_interpolated = alpha * I_a / v[0].w() + beta * I_b / v[1].w() + gamma * I_c / v[2].w();
+                //     I_interpolated *= w_reciprocal;
+                //     return I_interpolated;
+                // };
+
+                float z_interpolated = interpolator.interpolate<float>(v[0].z(), v[1].z(), v[2].z());
+
+                //断言，防止访问depth_buf越界
+                assert(x < this->width );
+                assert(y < this->height );
+                if(z_interpolated < this->depth_buf[get_index(x, y)] ){
+                    this->depth_buf[get_index(x, y)] = z_interpolated;
+
+                    //插值得到x,y处的法向量
+                    Vector3f interpolated_normal = interpolator.interpolate<Vector3f>(t.normal[0], t.normal[1], t.normal[2]);
+
+                    //构造shader_payload传给this->fragment_shader
+                    fragment_shader_payload payload;
+                    payload.normal = interpolated_normal;
+
+                    //调用shader
+                    Vector3f pixel_color = this->fragment_shader(payload);
+
+                    //设置颜色
+                    this->frame_buf[get_index(x,y)] = pixel_color;
+                    
+                } 
+            }
+        }
+    }
+    printf("inside cnt [%d] for Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) \n",
+        inside_cnt,
+        v[0].x(), v[0].y(),
+        v[1].x(), v[1].y(),
+        v[2].x(), v[2].y()
+    );
 
     // TODO: Interpolate the attributes:
     // auto interpolated_color
