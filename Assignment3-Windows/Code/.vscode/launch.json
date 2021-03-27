@@ -1,0 +1,9 @@
+{
+    "type": "cppvsdbg",
+    "request": "launch",
+    "program": "${workspaceRoot}/build/Rasterizer.exe",
+            "args": [
+              "bump",
+              "bump.png",
+            ]
+}

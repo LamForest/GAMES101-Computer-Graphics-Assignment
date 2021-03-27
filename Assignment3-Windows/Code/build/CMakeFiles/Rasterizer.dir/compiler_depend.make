@@ -1228,7 +1228,118 @@ CMakeFiles/Rasterizer.dir/main.cpp.obj: ../main.cpp \
   ../Shader.hpp \
   ../Texture.hpp \
   ../Triangle.hpp \
+  ../myutils.h \
   ../OBJ_Loader.h
+
+CMakeFiles/Rasterizer.dir/myutils.cpp.obj: ../myutils.cpp \
+  ../myutils.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/exception \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/exception.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/exception_ptr.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/exception_defines.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/cxxabi_init_exception.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/_mingw.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/vadefs.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/typeinfo \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/hash_bytes.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/new \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/nested_exception.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/move.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/concept_check.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/type_traits \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/stdexcept \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/string \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stringfwd.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/memoryfwd.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/char_traits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/functexcept.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/cpp_type_traits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/type_traits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/numeric_traits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_pair.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator_base_types.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator_base_funcs.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/debug/assertions.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ptr_traits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/debug/debug.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/predefined_ops.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/postypes.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cwchar \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/wchar.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/_mingw_print_push.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstdint \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/stdint.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/allocator.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/new_allocator.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/localefwd.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/clocale \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/locale.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iosfwd \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cctype \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/ctype.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/ostream_insert.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/cxxabi_forced.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_function.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/binders.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/range_access.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/initializer_list \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/atomicity.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/pthread.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/errno.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sys/types.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/process.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/corecrt_startup.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/limits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/signal.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/pthread_signal.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/pthread_compat.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/pthread_unistd.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/alloc_traits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/alloc_traits.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/string_view \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/limits \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/functional_hash.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/string_view.tcc \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/ext/string_conversions.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstdlib \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/stdlib.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/std_abs.h \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cstdio \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/cerrno \
+  D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/basic_string.tcc
 
 CMakeFiles/Rasterizer.dir/rasterizer.cpp.obj: ../rasterizer.cpp \
   D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/algorithm \
@@ -1842,7 +1953,8 @@ CMakeFiles/Rasterizer.dir/rasterizer.cpp.obj: ../rasterizer.cpp \
   D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/videostab/include/opencv2/videostab/deblurring.hpp \
   D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/videostab/include/opencv2/videostab/wobble_suppression.hpp \
   D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/videostab/include/opencv2/videostab/ring_buffer.hpp \
-  ../Triangle.hpp
+  ../Triangle.hpp \
+  ../myutils.h
 
 
 D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/new:
@@ -2869,6 +2981,8 @@ D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/core/include/opencv2/c
 
 D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/core/include/opencv2/core/neon_utils.hpp:
 
+../myutils.h:
+
 D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/core/include/opencv2/core/matx.hpp:
 
 D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/core/include/opencv2/core/saturate.hpp:
@@ -3038,3 +3152,5 @@ D:/gao_tianlin/library/opencv3_2_0/opencv/sources/modules/videostab/include/open
 ../Shader.hpp:
 
 ../OBJ_Loader.h:
+
+../myutils.cpp:

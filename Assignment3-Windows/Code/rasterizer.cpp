@@ -333,6 +333,26 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
     //     i_min_x, i_max_x, i_min_y, i_max_y
     // );
 
+    try{
+        range_check(t.tex_coords[0][0]);
+        range_check(t.tex_coords[0][1]);
+        range_check(t.tex_coords[1][0]);
+        range_check(t.tex_coords[1][1]);
+        range_check(t.tex_coords[2][0]);
+        range_check(t.tex_coords[2][1]);
+    }catch(std::exception e){
+
+        printf("tri texture = (%.4f, %.4f), (%.4f, %.4f), (%.4f, %.4f) \n", 
+        t.tex_coords[0][0],
+        t.tex_coords[0][1],
+        t.tex_coords[1][0],
+        t.tex_coords[1][1],
+        t.tex_coords[2][0],
+        t.tex_coords[2][1]
+
+        );
+        // assert(false);
+    }
 
     //2. z-buffer
     int inside_cnt = 0;
@@ -397,6 +417,15 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                     float interpolated_u = interpolator.interpolate<float>(t.tex_coords[0][0], t.tex_coords[1][0], t.tex_coords[2][0]);
                     float interpolated_v = interpolator.interpolate<float>(t.tex_coords[0][1], t.tex_coords[1][1], t.tex_coords[2][1]);
 
+                    // range_check(interpolated_u);
+                    // range_check(interpolated_v);
+                    try{
+                        range_check(interpolated_u);
+                        range_check(interpolated_v);
+                    }catch(std::exception e){
+                        printf("interpolated u,v = (%.3f, %.3f)\n", interpolated_u, interpolated_v);
+                        // assert(false);
+                    }
 
                     //构造shader_payload传给this->fragment_shader
                     fragment_shader_payload payload;
@@ -410,7 +439,7 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                     //这部分是texture shading需要的
                     assert(this->texture.has_value());
                     payload.texture = &(this->texture.value());
-                    payload.tex_coords = Vector2f{interpolated_u, interpolated_v};
+                    payload.set_tex_coords(Vector2f{interpolated_u, interpolated_v});
 
 
                     //调用shader

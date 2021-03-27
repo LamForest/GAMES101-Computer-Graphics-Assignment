@@ -18,5 +18,10 @@
   "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/build",
   "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\Texture.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment3-Windows\\Code\\Texture.cpp",
   "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/Texture.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe  @CMakeFiles/Rasterizer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Rasterizer.dir\\myutils.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment3-Windows\\Code\\myutils.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/myutils.cpp"
 }
 ]

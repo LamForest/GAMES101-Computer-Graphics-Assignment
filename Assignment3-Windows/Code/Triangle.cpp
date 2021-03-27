@@ -39,6 +39,9 @@ void Triangle::setColor(int ind, float r, float g, float b) {
     return;
 }
 void Triangle::setTexCoord(int ind, Vector2f uv) {
+    if (uv[0] < 0 || uv[0] >= 1.0f || uv[1] < 0 || uv[1] >= 1.0f){
+        printf("setTexCoord out of range : %.4f, %.4f\n", uv[0], uv[1]);
+    }
     tex_coords[ind] = uv;
 }
 

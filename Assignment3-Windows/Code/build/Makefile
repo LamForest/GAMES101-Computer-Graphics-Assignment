@@ -200,6 +200,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Rasterizer.dir\build.make CMakeFiles/Rasterizer.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+myutils.obj: myutils.cpp.obj
+.PHONY : myutils.obj
+
+# target to build an object file
+myutils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Rasterizer.dir\build.make CMakeFiles/Rasterizer.dir/myutils.cpp.obj
+.PHONY : myutils.cpp.obj
+
+myutils.i: myutils.cpp.i
+.PHONY : myutils.i
+
+# target to preprocess a source file
+myutils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Rasterizer.dir\build.make CMakeFiles/Rasterizer.dir/myutils.cpp.i
+.PHONY : myutils.cpp.i
+
+myutils.s: myutils.cpp.s
+.PHONY : myutils.s
+
+# target to generate assembly for a file
+myutils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Rasterizer.dir\build.make CMakeFiles/Rasterizer.dir/myutils.cpp.s
+.PHONY : myutils.cpp.s
+
 rasterizer.obj: rasterizer.cpp.obj
 .PHONY : rasterizer.obj
 
@@ -242,6 +266,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... myutils.obj
+	@echo ... myutils.i
+	@echo ... myutils.s
 	@echo ... rasterizer.obj
 	@echo ... rasterizer.i
 	@echo ... rasterizer.s

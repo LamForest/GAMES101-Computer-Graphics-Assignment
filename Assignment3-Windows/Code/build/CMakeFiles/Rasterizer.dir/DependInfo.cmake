@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/Texture.cpp" "CMakeFiles/Rasterizer.dir/Texture.cpp.obj" "gcc" "CMakeFiles/Rasterizer.dir/Texture.cpp.obj.d"
   "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/Triangle.cpp" "CMakeFiles/Rasterizer.dir/Triangle.cpp.obj" "gcc" "CMakeFiles/Rasterizer.dir/Triangle.cpp.obj.d"
   "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/main.cpp" "CMakeFiles/Rasterizer.dir/main.cpp.obj" "gcc" "CMakeFiles/Rasterizer.dir/main.cpp.obj.d"
+  "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/myutils.cpp" "CMakeFiles/Rasterizer.dir/myutils.cpp.obj" "gcc" "CMakeFiles/Rasterizer.dir/myutils.cpp.obj.d"
   "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment3-Windows/Code/rasterizer.cpp" "CMakeFiles/Rasterizer.dir/rasterizer.cpp.obj" "gcc" "CMakeFiles/Rasterizer.dir/rasterizer.cpp.obj.d"
   )
 

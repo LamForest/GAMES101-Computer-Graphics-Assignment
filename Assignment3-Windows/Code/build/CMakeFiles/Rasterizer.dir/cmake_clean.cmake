@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Rasterizer.dir/Triangle.cpp.obj.d"
   "CMakeFiles/Rasterizer.dir/main.cpp.obj"
   "CMakeFiles/Rasterizer.dir/main.cpp.obj.d"
+  "CMakeFiles/Rasterizer.dir/myutils.cpp.obj"
+  "CMakeFiles/Rasterizer.dir/myutils.cpp.obj.d"
   "CMakeFiles/Rasterizer.dir/rasterizer.cpp.obj"
   "CMakeFiles/Rasterizer.dir/rasterizer.cpp.obj.d"
   "Rasterizer.exe"

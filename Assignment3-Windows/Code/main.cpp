@@ -7,6 +7,7 @@
 #include "Shader.hpp"
 #include "Texture.hpp"
 #include "OBJ_Loader.h"
+#include "myutils.h"
 
 Eigen::Matrix4f get_view_matrix(Eigen::Vector3f eye_pos)
 {
@@ -105,6 +106,10 @@ Eigen::Vector3f texture_fragment_shader(const fragment_shader_payload& payload)
     if (payload.texture)
     {
         // TODO: Get the texture value at the texture coordinates of the current fragment
+        // range_check(payload.tex_coords[0]);
+        // range_check(payload.tex_coords[1]);
+        // payload.tex_coords[1] = std::min(1, std::max(0, payload.tex_coords[1]));
+
         return_color = payload.texture->getColor(payload.tex_coords[0], payload.tex_coords[1]);
 
     }
@@ -155,9 +160,9 @@ Eigen::Vector3f texture_fragment_shader(const fragment_shader_payload& payload)
         // printf("spec = %.3f %.3f %.3f, cos = %.4f, h.dot(n) = %.4f ", specular_color[0], specular_color[1], specular_color[2], spec_cos, h.dot(n));
         // printf("diff = %.3f %.3f %.3f, ", diffuse_color[0], diffuse_color[1], diffuse_color[2]);
         // printf("amb = %.3f %.3f %.3f\n", ambient_color[0], ambient_color[1], ambient_color[2]);
-        // result_color += specular_color + diffuse_color + ambient_color;
+        result_color += specular_color + diffuse_color + ambient_color;
         // result_color += diffuse_color + ambient_color;
-        result_color += specular_color;
+        // result_color += specular_color;
         // result_color += diffuse_color;
         // result_color += ambient_color;
     }
@@ -247,7 +252,7 @@ Eigen::Vector3f displacement_fragment_shader(const fragment_shader_payload& payl
 
     Eigen::Vector3f color = payload.color; 
     Eigen::Vector3f point = payload.view_pos;
-    Eigen::Vector3f normal = payload.normal;
+    Eigen::Vector3f n = payload.normal.normalized();
 
     float kh = 0.2, kn = 0.1;
     
@@ -262,14 +267,75 @@ Eigen::Vector3f displacement_fragment_shader(const fragment_shader_payload& payl
     // Position p = p + kn * n * h(u,v)
     // Normal n = normalize(TBN * ln)
 
+    float x = n.x(), y = n.y(), z = n.z();
+    float w = payload.texture->width;
+    float h = payload.texture->height;
+    float u = payload.tex_coords[0];
+    float v = payload.tex_coords[1];
+    // range_check(u);
+    // range_check(u);
 
+    Vector3f t{x*y/std::sqrt(x*x+z*z),std::sqrt(x*x+z*z),z*y/std::sqrt(x*x+z*z)};
+    Vector3f b = n.cross(t);
+    Matrix3f TBN;
+    // TBN.col(0) = t;
+    // TBN.col(1) = b;
+    // TBN.col(2) = n;
+    TBN<<t,b,n;
+    float new_u = u + 1.0f/w, new_v = v + 1.0f / h; 
+    //防止new_u new_v超出uv边界
+    if (new_u > 1 || new_u < 0){
+        new_u = u;
+    }
+    if (new_v > 1 || new_v < 0){
+        new_v = v;
+    }
+
+    float dU = kh * kn * (payload.texture->getColor(new_u, v).norm() - payload.texture->getColor(u, v).norm());
+    float dV = kh * kn * (payload.texture->getColor(u , new_v).norm() - payload.texture->getColor(u, v).norm());
+
+    Vector3f ln{-dU, -dV, 1.0f};
+
+    // point = point + kn * n.cwiseProduct(payload.texture->getColor(u, v));
+    //注意这里相比于bump mapping 真正改变了点在view space中的位置
+    point = point + kn * n * (payload.texture->getColor(u, v)).norm();
+    
+    
+    //perturbed之后的法向量
+    n = (TBN * ln).normalized();
+    
     Eigen::Vector3f result_color = {0, 0, 0};
+
+    Vector3f view_v = (eye_pos - point).normalized();
 
     for (auto& light : lights)
     {
         // TODO: For each light source in the code, calculate what the *ambient*, *diffuse*, and *specular* 
         // components are. Then, accumulate that result on the *result_color* object.
+        float attenuation = 1.0f / std::pow((point -  light.position).norm(), 2);  // 1/r^2 
+        Vector3f attenuation_intensity = attenuation * light.intensity; 
+        Vector3f l = (light.position - point).normalized(); //光照方向，自shading point到光源
+        Vector3f h = (view_v+l).normalized();
 
+
+        //环境光
+        Vector3f ambient_color = amb_light_intensity.cwiseProduct(ka);
+
+        //漫反射光
+        float diff_cos = std::max(0.0f, l.dot(n));
+        Vector3f diffuse_color = kd.cwiseProduct(attenuation_intensity) * diff_cos;
+
+        //镜面反射
+        float spec_cos = std::max(0.0f, h.dot(n));
+        Vector3f specular_color = ks.cwiseProduct(attenuation_intensity) * std::pow(spec_cos, p);
+        // printf("spec = %.3f %.3f %.3f, cos = %.4f, h.dot(n) = %.4f ", specular_color[0], specular_color[1], specular_color[2], spec_cos, h.dot(n));
+        // printf("diff = %.3f %.3f %.3f, ", diffuse_color[0], diffuse_color[1], diffuse_color[2]);
+        // printf("amb = %.3f %.3f %.3f\n", ambient_color[0], ambient_color[1], ambient_color[2]);
+        // result_color += specular_color + diffuse_color + ambient_color;
+        // result_color += diffuse_color + ambient_color;
+        result_color += specular_color;
+        // result_color += diffuse_color;
+        // result_color += ambient_color;
 
     }
 
@@ -295,10 +361,11 @@ Eigen::Vector3f bump_fragment_shader(const fragment_shader_payload& payload)
 
     Eigen::Vector3f color = payload.color; 
     Eigen::Vector3f point = payload.view_pos;
-    Eigen::Vector3f normal = payload.normal;
+    Eigen::Vector3f n = payload.normal.normalized();
 
 
     float kh = 0.2, kn = 0.1;
+
 
     // TODO: Implement bump mapping here
     // Let n = normal = (x, y, z)
@@ -309,10 +376,54 @@ Eigen::Vector3f bump_fragment_shader(const fragment_shader_payload& payload)
     // dV = kh * kn * (h(u,v+1/h)-h(u,v))
     // Vector ln = (-dU, -dV, 1)
     // Normal n = normalize(TBN * ln)
+    float x = n.x(), y = n.y(), z = n.z();
+    float w = payload.texture->width;
+    float h = payload.texture->height;
+    float u = payload.tex_coords[0];
+    float v = payload.tex_coords[1];
+    // range_check(u);
+    // range_check(u);
+
+    Vector3f t{x*y/std::sqrt(x*x+z*z),std::sqrt(x*x+z*z),z*y/std::sqrt(x*x+z*z)};
+    Vector3f b = n.cross(t);
+    Matrix3f TBN;
+    TBN.col(0) = t;
+    TBN.col(1) = b;
+    TBN.col(2) = n;
+    float new_u = u + 1.0f/w, new_v = v + 1.0f / h; 
+    //防止new_u new_v超出uv边界
+    if (new_u > 1 || new_u < 0){
+        new_u = u;
+    }
+    if (new_v > 1 || new_v < 0){
+        new_v = v;
+    }
+    //
+    // try{
+
+    // range_check(new_u);
+    // range_check(new_v);
+    // }catch(std::exception e){
+    //     printf("u,v = %.2f, %.2f; new_u, new_v = %.2f, %.2f\n", u, v, new_u, new_v);
+    //     assert(false);
+    // }
+    // printf("u,v = %.2f, %.2f; new_u, new_v = %.2f, %.2f\n", u, v, new_u, new_v);
+    // assert(new_u < 0 || new_u >=1.0 || new_v < 0 || new_v >= 1.0);
+
+    float dU = kh * kn * (payload.texture->getColor(new_u, v).norm() - payload.texture->getColor(u, v).norm());
+    float dV = kh * kn * (payload.texture->getColor(u , new_v).norm() - payload.texture->getColor(u, v).norm());
+
+    Vector3f ln{-dU, -dV, 1.0f};
+    Vector3f perturbed_n = (TBN * ln).normalized();
+    
+
+
+
+
 
 
     Eigen::Vector3f result_color = {0, 0, 0};
-    result_color = normal;
+    result_color = perturbed_n;
 
     return result_color * 255.f;
 }

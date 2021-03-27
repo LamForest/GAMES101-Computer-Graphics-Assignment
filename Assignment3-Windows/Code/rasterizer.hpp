@@ -10,6 +10,7 @@
 #include "global.hpp"
 #include "Shader.hpp"
 #include "Triangle.hpp"
+#include "myutils.h"
 
 using namespace Eigen;
 
