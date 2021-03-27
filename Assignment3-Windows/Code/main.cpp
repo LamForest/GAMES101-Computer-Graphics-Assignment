@@ -76,6 +76,7 @@ Eigen::Vector3f vertex_shader(const vertex_shader_payload& payload)
 Eigen::Vector3f normal_fragment_shader(const fragment_shader_payload& payload)
 {
     //+(1,1,1)什么意思？，为了使颜色更好看？
+    //原本normal的xyz在[-1,1]之间,这么操作,在[0,1]之内]}
     Eigen::Vector3f return_color = (payload.normal.head<3>().normalized() + Eigen::Vector3f(1.0f, 1.0f, 1.0f)) / 2.f;
     Eigen::Vector3f result;
     result << return_color.x() * 255, return_color.y() * 255, return_color.z() * 255;
@@ -94,12 +95,17 @@ struct light
     Eigen::Vector3f intensity;
 };
 
+/*
+与Phongshading完全一致，
+唯一的区别是，kd != 某个常数，(u,v)处的kd = texture在(u,v)处的颜色值
+*/
 Eigen::Vector3f texture_fragment_shader(const fragment_shader_payload& payload)
 {
     Eigen::Vector3f return_color = {0, 0, 0};
     if (payload.texture)
     {
         // TODO: Get the texture value at the texture coordinates of the current fragment
+        return_color = payload.texture->getColor(payload.tex_coords[0], payload.tex_coords[1]);
 
     }
     Eigen::Vector3f texture_color;
@@ -118,20 +124,48 @@ Eigen::Vector3f texture_fragment_shader(const fragment_shader_payload& payload)
 
     float p = 150;
 
-    Eigen::Vector3f color = texture_color;
+    // Eigen::Vector3f color = texture_color;
     Eigen::Vector3f point = payload.view_pos;
-    Eigen::Vector3f normal = payload.normal;
+    // Eigen::Vector3f normal = payload.normal;
+    //有些向量相对于光源不变
+    Eigen::Vector3f n = payload.normal.normalized();
+    Vector3f v = (eye_pos - point).normalized();
 
     Eigen::Vector3f result_color = {0, 0, 0};
-
     for (auto& light : lights)
     {
         // TODO: For each light source in the code, calculate what the *ambient*, *diffuse*, and *specular* 
         // components are. Then, accumulate that result on the *result_color* object.
+        float attenuation = 1.0f / std::pow((point -  light.position).norm(), 2);  // 1/r^2 
+        Vector3f attenuation_intensity = attenuation * light.intensity; 
+        Vector3f l = (light.position - point).normalized(); //光照方向，自shading point到光源
+        Vector3f h = (v+l).normalized();
 
+
+        //环境光
+        Vector3f ambient_color = amb_light_intensity.cwiseProduct(ka);
+
+        //漫反射光
+        float diff_cos = std::max(0.0f, l.dot(n));
+        Vector3f diffuse_color = kd.cwiseProduct(attenuation_intensity) * diff_cos;
+
+        //镜面反射
+        float spec_cos = std::max(0.0f, h.dot(n));
+        Vector3f specular_color = ks.cwiseProduct(attenuation_intensity) * std::pow(spec_cos, p);
+        // printf("spec = %.3f %.3f %.3f, cos = %.4f, h.dot(n) = %.4f ", specular_color[0], specular_color[1], specular_color[2], spec_cos, h.dot(n));
+        // printf("diff = %.3f %.3f %.3f, ", diffuse_color[0], diffuse_color[1], diffuse_color[2]);
+        // printf("amb = %.3f %.3f %.3f\n", ambient_color[0], ambient_color[1], ambient_color[2]);
+        // result_color += specular_color + diffuse_color + ambient_color;
+        // result_color += diffuse_color + ambient_color;
+        result_color += specular_color;
+        // result_color += diffuse_color;
+        // result_color += ambient_color;
     }
+    // printf("Result_color = %.3f %.3f %.3f\n", result_color[0], result_color[1], result_color[2]);
+    result_color *= 255.f;
+    // printf("Result_color = %.3f %.3f %.3f\n", result_color[0], result_color[1], result_color[2]);
+    return result_color;
 
-    return result_color * 255.f;
 }
 
 Eigen::Vector3f phong_fragment_shader(const fragment_shader_payload& payload)
@@ -180,11 +214,11 @@ Eigen::Vector3f phong_fragment_shader(const fragment_shader_payload& payload)
         // printf("spec = %.3f %.3f %.3f, cos = %.4f, h.dot(n) = %.4f ", specular_color[0], specular_color[1], specular_color[2], spec_cos, h.dot(n));
         // printf("diff = %.3f %.3f %.3f, ", diffuse_color[0], diffuse_color[1], diffuse_color[2]);
         // printf("amb = %.3f %.3f %.3f\n", ambient_color[0], ambient_color[1], ambient_color[2]);
-        // result_color += specular_color + diffuse_color + ambient_color;
+        result_color += specular_color + diffuse_color + ambient_color;
         // result_color += diffuse_color + ambient_color;
         // result_color += specular_color;
         // result_color += diffuse_color;
-        result_color += ambient_color;
+        // result_color += ambient_color;
     }
     // printf("Result_color = %.3f %.3f %.3f\n", result_color[0], result_color[1], result_color[2]);
     result_color *= 255.f;
@@ -304,6 +338,7 @@ int main(int argc, const char** argv)
             Triangle* t = new Triangle();
             for(int j=0;j<3;j++)
             {
+
                 t->setVertex(j,Vector4f(mesh.Vertices[i+j].Position.X,mesh.Vertices[i+j].Position.Y,mesh.Vertices[i+j].Position.Z,1.0));
                 t->setNormal(j,Vector3f(mesh.Vertices[i+j].Normal.X,mesh.Vertices[i+j].Normal.Y,mesh.Vertices[i+j].Normal.Z));
                 t->setTexCoord(j,Vector2f(mesh.Vertices[i+j].TextureCoordinate.X, mesh.Vertices[i+j].TextureCoordinate.Y));

@@ -268,6 +268,7 @@ void rst::rasterizer::draw(std::vector<Triangle *> &TriangleList) {
             newtri.setNormal(i, n[i].head<3>());
         }
 
+        //每个点的漫反射系数都相同
         newtri.setColor(0, 148,121.0,92.0);
         newtri.setColor(1, 148,121.0,92.0);
         newtri.setColor(2, 148,121.0,92.0);
@@ -393,12 +394,24 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
                     Vector3f interpolated_normal = interpolator.interpolate<Vector3f>(t.normal[0], t.normal[1], t.normal[2]);
                     Vector3f interpolated_color = interpolator.interpolate<Vector3f>(t.color[0], t.color[1], t.color[2]);
                     Vector3f interpolated_view_pos = interpolator.interpolate<Vector3f>(view_pos[0], view_pos[1], view_pos[2]);
+                    float interpolated_u = interpolator.interpolate<float>(t.tex_coords[0][0], t.tex_coords[1][0], t.tex_coords[2][0]);
+                    float interpolated_v = interpolator.interpolate<float>(t.tex_coords[0][1], t.tex_coords[1][1], t.tex_coords[2][1]);
+
 
                     //构造shader_payload传给this->fragment_shader
                     fragment_shader_payload payload;
+                    //这部分是normal shader需要的
                     payload.normal = interpolated_normal;
-                    payload.color = interpolated_color;
+
+                    //这部分是Phong shading需要的
+                    payload.color = interpolated_color; //color实际上不需要插值，因为都是常数
                     payload.view_pos = interpolated_view_pos;
+
+                    //这部分是texture shading需要的
+                    assert(this->texture.has_value());
+                    payload.texture = &(this->texture.value());
+                    payload.tex_coords = Vector2f{interpolated_u, interpolated_v};
+
 
                     //调用shader
                     Vector3f pixel_color = this->fragment_shader(payload);

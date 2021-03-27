@@ -14,7 +14,14 @@ class Triangle{
 public:
     Vector4f v[3]; /*the original coordinates of the triangle, v0, v1, v2 in counter clockwise order*/
     /*Per vertex values*/
-    Vector3f color[3]; //color at each vertex;
+    /*
+        color在rasterizer中都设为了常数值：
+        newtri.setColor(0, 148,121.0,92.0);
+        newtri.setColor(1, 148,121.0,92.0);
+        newtri.setColor(2, 148,121.0,92.0);
+        所以color不代表实际的颜色，而是漫反射系数kd
+    */
+    Vector3f color[3]; //color at each vertex; 
     Vector2f tex_coords[3]; //texture u,v
     Vector3f normal[3]; //normal vector for each vertex
 
