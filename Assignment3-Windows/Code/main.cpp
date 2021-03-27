@@ -75,7 +75,7 @@ Eigen::Vector3f vertex_shader(const vertex_shader_payload& payload)
 //最后的效果就是随着牛牛表面法向量方向的改变，颜色也逐渐改变
 Eigen::Vector3f normal_fragment_shader(const fragment_shader_payload& payload)
 {
-    //+(1,1,1)什么意思
+    //+(1,1,1)什么意思？，为了使颜色更好看？
     Eigen::Vector3f return_color = (payload.normal.head<3>().normalized() + Eigen::Vector3f(1.0f, 1.0f, 1.0f)) / 2.f;
     Eigen::Vector3f result;
     result << return_color.x() * 255, return_color.y() * 255, return_color.z() * 255;
@@ -136,32 +136,61 @@ Eigen::Vector3f texture_fragment_shader(const fragment_shader_payload& payload)
 
 Eigen::Vector3f phong_fragment_shader(const fragment_shader_payload& payload)
 {
-    Eigen::Vector3f ka = Eigen::Vector3f(0.005, 0.005, 0.005);
-    Eigen::Vector3f kd = payload.color;
-    Eigen::Vector3f ks = Eigen::Vector3f(0.7937, 0.7937, 0.7937);
+    Eigen::Vector3f ka = Eigen::Vector3f(0.005, 0.005, 0.005); //环境光
+    Eigen::Vector3f kd = payload.color; //漫反射系数
+    Eigen::Vector3f ks = Eigen::Vector3f(0.7937, 0.7937, 0.7937); //镜面反射系数
 
     auto l1 = light{{20, 20, 20}, {500, 500, 500}};
     auto l2 = light{{-20, 20, 0}, {500, 500, 500}};
 
     std::vector<light> lights = {l1, l2};
-    Eigen::Vector3f amb_light_intensity{10, 10, 10};
-    Eigen::Vector3f eye_pos{0, 0, 10};
+    Eigen::Vector3f amb_light_intensity{10, 10, 10}; //I_a，即RGB下的强度
+    Eigen::Vector3f eye_pos{0, 0, 10}; //
 
     float p = 150;
 
-    Eigen::Vector3f color = payload.color;
+    // Eigen::Vector3f color = payload.color;
     Eigen::Vector3f point = payload.view_pos;
-    Eigen::Vector3f normal = payload.normal;
+
+    //有些向量相对于光源不变
+    Eigen::Vector3f n = payload.normal.normalized();
+    Vector3f v = (eye_pos - point).normalized();
 
     Eigen::Vector3f result_color = {0, 0, 0};
     for (auto& light : lights)
     {
         // TODO: For each light source in the code, calculate what the *ambient*, *diffuse*, and *specular* 
         // components are. Then, accumulate that result on the *result_color* object.
-        
-    }
+        float attenuation = 1.0f / std::pow((point -  light.position).norm(), 2);  // 1/r^2 
+        Vector3f attenuation_intensity = attenuation * light.intensity; 
+        Vector3f l = (light.position - point).normalized(); //光照方向，自shading point到光源
+        Vector3f h = (v+l).normalized();
 
-    return result_color * 255.f;
+
+        //环境光
+        Vector3f ambient_color = amb_light_intensity.cwiseProduct(ka);
+
+        //漫反射光
+        float diff_cos = std::max(0.0f, l.dot(n));
+        Vector3f diffuse_color = kd.cwiseProduct(attenuation_intensity) * diff_cos;
+
+        //镜面反射
+        float spec_cos = std::max(0.0f, h.dot(n));
+        Vector3f specular_color = ks.cwiseProduct(attenuation_intensity) * std::pow(spec_cos, 150);
+        // printf("spec = %.3f %.3f %.3f, cos = %.4f, h.dot(n) = %.4f ", specular_color[0], specular_color[1], specular_color[2], spec_cos, h.dot(n));
+        // printf("diff = %.3f %.3f %.3f, ", diffuse_color[0], diffuse_color[1], diffuse_color[2]);
+        // printf("amb = %.3f %.3f %.3f\n", ambient_color[0], ambient_color[1], ambient_color[2]);
+        // result_color += specular_color + diffuse_color + ambient_color;
+        // result_color += diffuse_color + ambient_color;
+        // result_color += specular_color;
+        // result_color += diffuse_color;
+        result_color += ambient_color;
+    }
+    // printf("Result_color = %.3f %.3f %.3f\n", result_color[0], result_color[1], result_color[2]);
+    result_color *= 255.f;
+    // printf("Result_color = %.3f %.3f %.3f\n", result_color[0], result_color[1], result_color[2]);
+    return result_color;
+
 }
 
 

@@ -325,12 +325,12 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
     int i_max_y = std::ceil(max_y);
 
     const auto &v = t.v; //只是为了少写一个t.
-    printf("Tri: [(%.2f, %.2f, %.2f, %.2f), (%.2f, %.2f, %.2f, %.2f), (%.2f, %.2f, %.2f, %.2f) ];\nBBBox : x[%d, %d] x y[%d, %d]\n",
-        v[0].x(), v[0].y(), v[0].z(),v[0].w(),
-        v[1].x(), v[1].y(), v[1].z(),v[1].w(),
-        v[2].x(), v[2].y(), v[2].z(),v[2].w(),
-        i_min_x, i_max_x, i_min_y, i_max_y
-    );
+    // printf("Tri: [(%.2f, %.2f, %.2f, %.2f), (%.2f, %.2f, %.2f, %.2f), (%.2f, %.2f, %.2f, %.2f) ];\nBBBox : x[%d, %d] x y[%d, %d]\n",
+    //     v[0].x(), v[0].y(), v[0].z(),v[0].w(),
+    //     v[1].x(), v[1].y(), v[1].z(),v[1].w(),
+    //     v[2].x(), v[2].y(), v[2].z(),v[2].w(),
+    //     i_min_x, i_max_x, i_min_y, i_max_y
+    // );
 
 
     //2. z-buffer
@@ -391,10 +391,14 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
 
                     //插值得到x,y处的法向量
                     Vector3f interpolated_normal = interpolator.interpolate<Vector3f>(t.normal[0], t.normal[1], t.normal[2]);
+                    Vector3f interpolated_color = interpolator.interpolate<Vector3f>(t.color[0], t.color[1], t.color[2]);
+                    Vector3f interpolated_view_pos = interpolator.interpolate<Vector3f>(view_pos[0], view_pos[1], view_pos[2]);
 
                     //构造shader_payload传给this->fragment_shader
                     fragment_shader_payload payload;
                     payload.normal = interpolated_normal;
+                    payload.color = interpolated_color;
+                    payload.view_pos = interpolated_view_pos;
 
                     //调用shader
                     Vector3f pixel_color = this->fragment_shader(payload);
@@ -406,12 +410,12 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eig
             }
         }
     }
-    printf("inside cnt [%d] for Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) \n",
-        inside_cnt,
-        v[0].x(), v[0].y(),
-        v[1].x(), v[1].y(),
-        v[2].x(), v[2].y()
-    );
+    // printf("inside cnt [%d] for Tri[(%.2f, %.2f), (%.2f, %.2f), (%.2f, %.2f) \n",
+    //     inside_cnt,
+    //     v[0].x(), v[0].y(),
+    //     v[1].x(), v[1].y(),
+    //     v[2].x(), v[2].y()
+    // );
 
     // TODO: Interpolate the attributes:
     // auto interpolated_color

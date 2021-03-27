@@ -9,5 +9,6 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(D:\\gao_tianlin\\library\\eigen3\\eigen-3.3.7)
 
 add_executable(Rasterizer main.cpp rasterizer.hpp rasterizer.cpp global.hpp Triangle.hpp Triangle.cpp Texture.hpp Texture.cpp Shader.hpp OBJ_Loader.h)
+#add_executable(test test.cpp)
 target_link_libraries(Rasterizer ${OpenCV_LIBRARIES})
 #target_compile_options(Rasterizer PUBLIC -Wall -Wextra -pedantic)
