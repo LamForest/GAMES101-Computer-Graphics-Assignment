@@ -1,0 +1,7 @@
+{
+    "workbench.editor.enablePreview": false,
+    "cmake.generator": "MinGW Makefiles",
+    "files.associations": {
+        "stdexcept": "cpp"
+    }
+}

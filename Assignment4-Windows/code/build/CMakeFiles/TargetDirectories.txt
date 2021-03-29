@@ -1,0 +1,3 @@
+D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment4-Windows/code/build/CMakeFiles/BezierCurve.dir
+D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment4-Windows/code/build/CMakeFiles/edit_cache.dir
+D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment4-Windows/code/build/CMakeFiles/rebuild_cache.dir

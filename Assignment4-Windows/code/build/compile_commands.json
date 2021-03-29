@@ -1,0 +1,7 @@
+[
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment4-Windows/code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe  @CMakeFiles/BezierCurve.dir/includes_CXX.rsp -g -std=gnu++14 -o CMakeFiles\\BezierCurve.dir\\main.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment4-Windows\\code\\main.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment4-Windows/code/main.cpp"
+}
+]

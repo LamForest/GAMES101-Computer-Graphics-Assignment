@@ -1,0 +1,3 @@
+"D:\gao_tianlin\New Folder\cmake3_20\bin\cmake.exe" -E rm -f CMakeFiles\BezierCurve.dir/objects.a
+D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\ar.exe cr CMakeFiles\BezierCurve.dir/objects.a @CMakeFiles\BezierCurve.dir\objects1.rsp
+D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\BezierCurve.dir/objects.a -Wl,--no-whole-archive -o BezierCurve.exe -Wl,--out-implib,libBezierCurve.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BezierCurve.dir\linklibs.rsp
