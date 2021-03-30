@@ -124,15 +124,17 @@ std::optional<hit_payload> trace(
 Vector3f castRay(
         const Vector3f &orig, const Vector3f &dir, const Scene& scene,
         int depth)
-{
+{   
+    //最多计算5次
     if (depth > scene.maxDepth) {
         return Vector3f(0.0,0.0,0.0);
     }
 
-    Vector3f hitColor = scene.backgroundColor;
-    if (auto payload = trace(orig, dir, scene.get_objects()); payload)
+    Vector3f hitColor = scene.backgroundColor; 
+    if (auto payload = trace(orig, dir, scene.get_objects()); payload) //跟go非常像
     {
-        Vector3f hitPoint = orig + dir * payload->tNear;
+        //tNear应该是ray与scene中任意物体的最近交点tNear = min{t_intersect}
+        Vector3f hitPoint = orig + dir * payload->tNear; 
         Vector3f N; // normal
         Vector2f st; // st coordinates
         payload->hit_obj->getSurfaceProperties(hitPoint, dir, payload->index, payload->uv, N, st);
@@ -217,21 +219,35 @@ void Renderer::Render(const Scene& scene)
 
     // Use this variable as the eye position to start your rays.
     Vector3f eye_pos(0);
+
+    float project_plane_h = scale * 2.0f;
+    float project_plane_w = project_plane_h * imageAspectRatio;
+    float unit_w = project_plane_w / scene.width;
+    float unit_h = project_plane_h / scene.height;
+
+
+
     int m = 0;
     for (int j = 0; j < scene.height; ++j)
     {
         for (int i = 0; i < scene.width; ++i)
         {
             // generate primary ray direction
-            float x;
-            float y;
+            float x = (- project_plane_w / 2) + unit_w * i;
+            float y = (- project_plane_h / 2) + unit_h * j;
+            // x = -x;
+            y = -y;
             // TODO: Find the x and y positions of the current pixel to get the direction
             // vector that passes through it.
             // Also, don't forget to multiply both of them with the variable *scale*, and
             // x (horizontal) variable with the *imageAspectRatio*            
 
+            //验证坐标没生成错，应该没有吧[-1.33, 1.33]w x [-1, 1]h
+            // printf("i, j = %d, %d; x, y = %.4f, %.4f\n",i,j, x, y);
+
             Vector3f dir = Vector3f(x, y, -1); // Don't forget to normalize this direction!
-            framebuffer[m++] = castRay(eye_pos, dir, scene, 0);
+            Vector3f normed_dir = normalize(dir);
+            framebuffer[m++] = castRay(eye_pos, normed_dir, scene, 0);
         }
         UpdateProgress(j / (float)scene.height);
     }

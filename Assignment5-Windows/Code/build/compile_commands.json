@@ -1,0 +1,17 @@
+[
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment5-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -Wall -Wextra -pedantic -Wshadow -Wreturn-type -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\main.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment5-Windows\\Code\\main.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment5-Windows/Code/main.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment5-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -Wall -Wextra -pedantic -Wshadow -Wreturn-type -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Scene.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment5-Windows\\Code\\Scene.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment5-Windows/Code/Scene.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment5-Windows/Code/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -Wall -Wextra -pedantic -Wshadow -Wreturn-type -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Renderer.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment5-Windows\\Code\\Renderer.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment5-Windows/Code/Renderer.cpp"
+}
+]

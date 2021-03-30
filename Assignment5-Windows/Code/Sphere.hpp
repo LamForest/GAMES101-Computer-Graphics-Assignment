@@ -3,6 +3,7 @@
 #include "Object.hpp"
 #include "Vector.hpp"
 
+
 class Sphere : public Object
 {
 public:
@@ -12,6 +13,7 @@ public:
         , radius2(r * r)
     {}
 
+    //光线(orig, dir)是否与this相交，交点存在tnear中
     bool intersect(const Vector3f& orig, const Vector3f& dir, float& tnear, uint32_t&, Vector2f&) const override
     {
         // analytic solution
@@ -31,6 +33,7 @@ public:
         return true;
     }
 
+    //P点的法向量，存在N中
     void getSurfaceProperties(const Vector3f& P, const Vector3f&, const uint32_t&, const Vector2f&,
                               Vector3f& N, Vector2f&) const override
     {

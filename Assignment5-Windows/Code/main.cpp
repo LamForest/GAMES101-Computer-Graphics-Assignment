@@ -11,14 +11,17 @@ int main()
 {
     Scene scene(1280, 960);
 
+    //金属球
     auto sph1 = std::make_unique<Sphere>(Vector3f(-1, 0, -12), 2);
     sph1->materialType = DIFFUSE_AND_GLOSSY;
     sph1->diffuseColor = Vector3f(0.6, 0.7, 0.8);
 
+    //玻璃球
     auto sph2 = std::make_unique<Sphere>(Vector3f(0.5, -0.5, -8), 1.5);
-    sph2->ior = 1.5;
+    sph2->ior = 1.5; //玻璃的折射率维1.5
     sph2->materialType = REFLECTION_AND_REFRACTION;
 
+    //unique_ptr要move吗？
     scene.Add(std::move(sph1));
     scene.Add(std::move(sph2));
 
@@ -26,7 +29,7 @@ int main()
     uint32_t vertIndex[6] = {0, 1, 3, 1, 2, 3};
     Vector2f st[4] = {{0, 0}, {1, 0}, {1, 1}, {0, 1}};
     auto mesh = std::make_unique<MeshTriangle>(verts, vertIndex, 2, st);
-    mesh->materialType = DIFFUSE_AND_GLOSSY;
+    mesh->materialType = DIFFUSE_AND_GLOSSY; //网格的材质
 
     scene.Add(std::move(mesh));
     scene.Add(std::make_unique<Light>(Vector3f(-20, 70, 20), 0.5));
