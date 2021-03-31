@@ -47,7 +47,7 @@ Vector3f refract(const Vector3f &I, const Vector3f &N, const float &ior)
 // \param ior is the material refractive index
 // [/comment]
 //菲涅耳方程（Fresnel equation）描述了光线经过两个介质的界面时，反射和透射的光强比重kr和kt = 1-kr。
-//考虑能量被吸收吗？
+//考虑能量被吸收吗？Beer law？
 //kr与两个介质的折射率有关，也与入射角，折射角有关
 //折射角可由折射率，入射角算出，故kr只与折射率n_i, n_t, 入射角i有关
 //在实际中的表现为，看向远处的湖面，则大部分光线都被反射（甚至全反射），看向近处的湖面，则可以看到水底，这时既有反射也有折射
