@@ -46,22 +46,35 @@ Vector3f refract(const Vector3f &I, const Vector3f &N, const float &ior)
 //
 // \param ior is the material refractive index
 // [/comment]
+//菲涅耳方程（Fresnel equation）描述了光线经过两个介质的界面时，反射和透射的光强比重kr和kt = 1-kr。
+//考虑能量被吸收吗？
+//kr与两个介质的折射率有关，也与入射角，折射角有关
+//折射角可由折射率，入射角算出，故kr只与折射率n_i, n_t, 入射角i有关
+//在实际中的表现为，看向远处的湖面，则大部分光线都被反射（甚至全反射），看向近处的湖面，则可以看到水底，这时既有反射也有折射
 float fresnel(const Vector3f &I, const Vector3f &N, const float &ior)
 {
     float cosi = clamp(-1, 1, dotProduct(I, N));
-    float etai = 1, etat = ior;
+    float etai = 1, etat = ior; //1为空气，场景中都是某一面是空气
+    //统一为i从surface背面进入
     if (cosi > 0) {  std::swap(etai, etat); }
     // Compute sini using Snell's law
+    //折射定律，将sin=1-cos^2代入即得下式
     float sint = etai / etat * sqrtf(std::max(0.f, 1 - cosi * cosi));
     // Total internal reflection
+    //全内反射 
     if (sint >= 1) {
-        return 1;
+        return 1; 
     }
     else {
+        //由sint得cost
         float cost = sqrtf(std::max(0.f, 1 - sint * sint));
+        //i = 180度 - i
         cosi = fabsf(cosi);
+        //s偏振
         float Rs = ((etat * cosi) - (etai * cost)) / ((etat * cosi) + (etai * cost));
+        //p偏振
         float Rp = ((etai * cosi) - (etat * cost)) / ((etai * cosi) + (etat * cost));
+        //图形学假设光是无偏振的，也就是两种偏振是等量的，所以可以取其平均值：（From https://zhuanlan.zhihu.com/p/31534769）
         return (Rs * Rs + Rp * Rp) / 2;
     }
     // As a consequence of the conservation of energy, transmittance is given by:
@@ -141,17 +154,30 @@ Vector3f castRay(
         switch (payload->hit_obj->materialType) {
             case REFLECTION_AND_REFRACTION:
             {
+                //
                 Vector3f reflectionDirection = normalize(reflect(dir, N));
                 Vector3f refractionDirection = normalize(refract(dir, N, payload->hit_obj->ior));
+
+                //这里N是否可以用reflectionDirection代替？意为顺着反射光的方向移动Orig
                 Vector3f reflectionRayOrig = (dotProduct(reflectionDirection, N) < 0) ?
-                                             hitPoint - N * scene.epsilon :
-                                             hitPoint + N * scene.epsilon;
+                                             hitPoint - N * scene.epsilon : // <0为折射，hit_point向surface内部移动一点点，防止精度问题导致反复与1个surface发生碰撞
+                                             hitPoint + N * scene.epsilon; //>0为反射，同上，向surface外面
+
+                //这里N是否可以用refractionDirection代替？
                 Vector3f refractionRayOrig = (dotProduct(refractionDirection, N) < 0) ?
-                                             hitPoint - N * scene.epsilon :
+                                             hitPoint - N * scene.epsilon : //见上
                                              hitPoint + N * scene.epsilon;
+
+                //recursive  
                 Vector3f reflectionColor = castRay(reflectionRayOrig, reflectionDirection, scene, depth + 1);
                 Vector3f refractionColor = castRay(refractionRayOrig, refractionDirection, scene, depth + 1);
+
+                //反射比率，多少的光被反射了
+                //kr = 1时，入射光大于临界角，此时为全内反射现象
                 float kr = fresnel(dir, N, payload->hit_obj->ior);
+
+                //反过来看（从光源-->人眼），光从hit_point照向人眼，hit_point一部分光源于该点的折射
+                //另一部分光源于该点的反射，所以是加起来并乘上反射与折射比率
                 hitColor = reflectionColor * kr + refractionColor * (1 - kr);
                 break;
             }
@@ -184,18 +210,21 @@ Vector3f castRay(
                     // square of the distance between hitPoint and the light
                     float lightDistance2 = dotProduct(lightDir, lightDir);
                     lightDir = normalize(lightDir);
+                    //Phong reflectance model中漫反射项
                     float LdotN = std::max(0.f, dotProduct(lightDir, N));
                     // is the point in shadow, and is the nearest occluding object closer to the object than the light itself?
                     auto shadow_res = trace(shadowPointOrig, lightDir, scene.get_objects());
                     bool inShadow = shadow_res && (shadow_res->tNear * shadow_res->tNear < lightDistance2);
 
                     lightAmt += inShadow ? 0 : light->intensity * LdotN;
+                    
+                    //Phong reflectance model中镜面反射项,但是没有用半程向量求，而是用了反射向量求
                     Vector3f reflectionDirection = reflect(-lightDir, N);
-
                     specularColor += powf(std::max(0.f, -dotProduct(reflectionDirection, dir)),
                         payload->hit_obj->specularExponent) * light->intensity;
                 }
 
+                //这里就是Phong反射模型的公式，和之前学的完完全全一致。
                 hitColor = lightAmt * payload->hit_obj->evalDiffuseColor(st) * payload->hit_obj->Kd + specularColor * payload->hit_obj->Ks;
                 break;
             }
