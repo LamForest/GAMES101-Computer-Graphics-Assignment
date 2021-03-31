@@ -143,7 +143,9 @@ Vector3f castRay(
         return Vector3f(0.0,0.0,0.0);
     }
 
+    //如果光线没有与任何物体碰撞，则使用背景色
     Vector3f hitColor = scene.backgroundColor; 
+
     if (auto payload = trace(orig, dir, scene.get_objects()); payload) //跟go非常像
     {
         //tNear应该是ray与scene中任意物体的最近交点tNear = min{t_intersect}
@@ -184,7 +186,9 @@ Vector3f castRay(
             case REFLECTION:
             {
                 float kr = fresnel(dir, N, payload->hit_obj->ior);
+                // printf("reflection kr = %.4f\n", kr);
                 Vector3f reflectionDirection = reflect(dir, N);
+                //这里+-是否反了
                 Vector3f reflectionRayOrig = (dotProduct(reflectionDirection, N) < 0) ?
                                              hitPoint + N * scene.epsilon :
                                              hitPoint - N * scene.epsilon;

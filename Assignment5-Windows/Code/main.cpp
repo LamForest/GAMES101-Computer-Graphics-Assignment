@@ -11,9 +11,11 @@ int main()
 {
     Scene scene(1280, 960);
 
-    //金属球
     auto sph1 = std::make_unique<Sphere>(Vector3f(-1, 0, -12), 2);
+    //粗糙金属球 其上的点不再进行光追
     sph1->materialType = DIFFUSE_AND_GLOSSY;
+    // sph1->materialType = REFLECTION;
+    sph1->ior = 1.5;
     sph1->diffuseColor = Vector3f(0.6, 0.7, 0.8);
 
     //玻璃球

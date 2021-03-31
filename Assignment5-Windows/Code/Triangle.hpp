@@ -30,7 +30,7 @@ bool rayTriangleIntersect(const Vector3f& v0, const Vector3f& v1, const Vector3f
         // v = intersect_point.y;
         u = b1;
         v = b2;
-        printf("u,v = %.4f, %.4f\n", u, v);
+        // printf("u,v = %.4f, %.4f\n", u, v);
         return true;
     }
     return false;
@@ -91,14 +91,14 @@ public:
         const Vector2f& st1 = stCoordinates[vertexIndex[index * 3 + 1]];
         const Vector2f& st2 = stCoordinates[vertexIndex[index * 3 + 2]];
         st = st0 * (1 - uv.x - uv.y) + st1 * uv.x + st2 * uv.y;
-        printf("st = (%.4f, %.4f), u,v = (%.4f, %.4f)\n", st.x, st.y, uv.x, uv.y);
+        // printf("st = (%.4f, %.4f), u,v = (%.4f, %.4f)\n", st.x, st.y, uv.x, uv.y);
     }
 
     Vector3f evalDiffuseColor(const Vector2f& st) const override
     {
         float scale = 5;
         float pattern = (fmodf(st.x * scale, 1) > 0.5) ^ (fmodf(st.y * scale, 1) > 0.5);
-        printf("st = (%.4f, %.4f), pattern = (%.4f)\n", st.x, st.y, pattern);
+        // printf("st = (%.4f, %.4f), pattern = (%.4f)\n", st.x, st.y, pattern);
 
         return lerp(Vector3f(0.815, 0.235, 0.031), Vector3f(0.937, 0.937, 0.231), pattern);
     }
