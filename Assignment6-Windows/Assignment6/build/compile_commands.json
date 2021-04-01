@@ -1,0 +1,27 @@
+[
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\main.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment6-Windows\\Assignment6\\main.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/main.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Vector.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment6-Windows\\Assignment6\\Vector.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/Vector.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Scene.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment6-Windows\\Assignment6\\Scene.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/Scene.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\BVH.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment6-Windows\\Assignment6\\BVH.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/BVH.cpp"
+},
+{
+  "directory": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/build",
+  "command": "D:\\gao_tianlin\\gcc\\mingw\\gcc8.1.0\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Renderer.cpp.obj -c D:\\gao_tianlin\\LamForestGithub\\Graphics\\GAMES101-Computer-Graphics-Assignment\\Assignment6-Windows\\Assignment6\\Renderer.cpp",
+  "file": "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment6-Windows/Assignment6/Renderer.cpp"
+}
+]
