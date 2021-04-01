@@ -32,12 +32,14 @@ https://zhuanlan.zhihu.com/p/31534769
 
 O(2^(maxDepth+1) - 1) * O(width * height)
 
-这里有个有意思的变化，闫老师在Ray Tracing 3里面也提到了，就是maxDepth的对于透明物体渲染的影响。
-#### maxDepth = 1 vs = 2
+这里有个有意思的变化，闫老师在Ray Tracing 3里面也提到了，就是maxDepth的对于透明物体渲染的影响：
+**maxDepth = 1 vs = 2**
 maxDepth = 1时（即光线只弹射一次），这个玻璃球是黑色的，表面只有一些反射的光，但是并没有光线穿透这个玻璃球，到达人眼。
+
 ![image](https://user-images.githubusercontent.com/17798738/113280803-600e1a80-9317-11eb-8526-d5f35ac8eb2b.png)
 
 maxDepth = 2时，才会有光线进去球内部，并出来，到达我们的眼睛
+
 ![image](https://user-images.githubusercontent.com/17798738/113281131-c3984800-9317-11eb-8ab3-81eb61a496f3.png)
 
 ### 其他问题
