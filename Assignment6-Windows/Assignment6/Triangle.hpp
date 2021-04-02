@@ -212,28 +212,36 @@ inline Intersection Triangle::getIntersection(Ray ray)
 {
     Intersection inter;
 
+    //从三角形内侧射入
     if (dotProduct(ray.direction, normal) > 0)
         return inter;
+    
     double u, v, t_tmp = 0;
-    Vector3f pvec = crossProduct(ray.direction, e2);
-    double det = dotProduct(e1, pvec);
-    if (fabs(det) < EPSILON)
+    Vector3f pvec = crossProduct(ray.direction, e2); //s1
+    double det = dotProduct(e1, pvec); //s1 dot e1
+    if (fabs(det) < EPSILON) //行列式det = 0, 方程组无唯一解，说明光线与面平行？
         return inter;
 
-    double det_inv = 1. / det;
-    Vector3f tvec = ray.origin - v0;
-    u = dotProduct(tvec, pvec) * det_inv;
+    double det_inv = 1. / det; //1 / (s1 dot e1)
+    Vector3f tvec = ray.origin - v0; // s
+    u = dotProduct(tvec, pvec) * det_inv; // b1  
     if (u < 0 || u > 1)
         return inter;
-    Vector3f qvec = crossProduct(tvec, e1);
-    v = dotProduct(ray.direction, qvec) * det_inv;
+    Vector3f qvec = crossProduct(tvec, e1); // s2
+    v = dotProduct(ray.direction, qvec) * det_inv; //b2
     if (v < 0 || u + v > 1)
         return inter;
     t_tmp = dotProduct(e2, qvec) * det_inv;
 
     // TODO find ray triangle intersection
-
-
+    if(t_tmp > 0 && u > 0 && v > 0 && 1 - u - v > 0){
+        inter.obj = this;
+        inter.distance = t_tmp;
+        inter.m = this->m;
+        inter.coords = (1-u-v) * this->v0 + u * this->v1 + v * this->v2;
+        inter.normal = this->normal;
+        inter.happened = true;
+    }
 
 
     return inter;

@@ -26,8 +26,10 @@ class Bounds3
         pMin = Vector3f(fmin(p1.x, p2.x), fmin(p1.y, p2.y), fmin(p1.z, p2.z));
         pMax = Vector3f(fmax(p1.x, p2.x), fmax(p1.y, p2.y), fmax(p1.z, p2.z));
     }
-
+    //对角线的差
     Vector3f Diagonal() const { return pMax - pMin; }
+
+    //longest axis 0 = x, 1 = y, 2 = z
     int maxExtent() const
     {
         Vector3f d = Diagonal();
@@ -39,6 +41,7 @@ class Bounds3
             return 2;
     }
 
+    //包围盒表面积
     double SurfaceArea() const
     {
         Vector3f d = Diagonal();
@@ -46,6 +49,8 @@ class Bounds3
     }
 
     Vector3f Centroid() { return 0.5 * pMin + 0.5 * pMax; }
+
+    //intersection of Bound3 : this and b
     Bounds3 Intersect(const Bounds3& b)
     {
         return Bounds3(Vector3f(fmax(pMin.x, b.pMin.x), fmax(pMin.y, b.pMin.y),
@@ -96,7 +101,72 @@ inline bool Bounds3::IntersectP(const Ray& ray, const Vector3f& invDir,
     // invDir: ray direction(x,y,z), invDir=(1.0/x,1.0/y,1.0/z), use this because Multiply is faster that Division
     // dirIsNeg: ray direction(x,y,z), dirIsNeg=[int(x>0),int(y>0),int(z>0)], use this to simplify your logic
     // TODO test if ray bound intersects
+
+    // float t_enter_x t_enter_y= t_enter_z = ;
+    // float t_enter_x, t_exit_x, t_enter_y, t_exit_y, t_enter_z, t_exit_z;
+
+    // if(isZero(ray.direction.x)){
+    //     if( ray.origin.x <= px_max && ray.origin.x >= px_min){
+    //         t_enter_x = - std::numeric_limits<float>::infinity();
+    //         t_exit_x = std::numeric_limits<float>::infinity();
+    //     }else{
+    //         t_enter_x = std::numeric_limits<float>::infinity();
+    //         t_exit_x = -std::numeric_limits<float>::infinity();
+    //     }
+    // }else{
+
     
+    // if(isZero(ray.direction.y)){
+    //     if( ray.origin.y <= py_max && ray.origin.y >= py_min){
+    //         t_enter_y = - std::numeric_limits<float>::infinity();
+    //         t_exit_y = std::numeric_limits<float>::infinity();
+    //     }else{
+    //         t_enter_y = std::numeric_limits<float>::infinity();
+    //         t_exit_y = -std::numeric_limits<float>::infinity();
+    //     }
+    // }else{
+
+    // }
+
+    // if(isZero(ray.direction.z)){
+    //     if( ray.origin.z <= pz_max && ray.origin.z >= pz_min){
+    //         t_enter_z = - std::numeric_limits<float>::infinity();
+    //         t_exit_z = std::numeric_limits<float>::infinity();
+    //     }else{
+    //         t_enter_z = std::numeric_limits<float>::infinity();
+    //         t_exit_z = -std::numeric_limits<float>::infinity();
+    //     }
+    // }else{
+
+    // }
+
+    // printf("t_enter = %.3f, t_exit = %.3f\n", t_enter, t_exit);
+
+
+    
+    // t_min & t_max along x/y/z-axis
+    //TODO:是否需要考虑invDir = inf的情况？
+    //暂时不考虑太过于细枝末节的东西
+    Vector3f t_pmax = (pMax - ray.origin) * invDir;
+    Vector3f t_pmin = (pMin - ray.origin) * invDir;
+    
+    //需要考虑光线正穿还是反穿
+    //反穿指光线由x,y,z较大，射向xyz较小的地方，
+    // 这样会先经过pMax，然后才是pMin
+    Vector3f t_enter(
+        std::min(t_pmin.x, t_pmax.x),
+        std::min(t_pmin.y, t_pmax.y),
+        std::min(t_pmin.z, t_pmax.z)
+        );
+    Vector3f t_exit(
+        std::max(t_pmin.x, t_pmax.x),
+        std::max(t_pmin.y, t_pmax.y),
+        std::max(t_pmin.z, t_pmax.z)
+        );
+
+    float t_enter_max = std::max({t_enter.x, t_enter.y, t_enter.z});
+    float t_exit_min  = std::min({t_exit.x, t_exit.y, t_exit.z});
+    return (t_exit_min>t_enter_max) && (t_exit_min>0);
 }
 
 inline Bounds3 Union(const Bounds3& b1, const Bounds3& b2)

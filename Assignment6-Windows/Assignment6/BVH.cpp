@@ -79,6 +79,7 @@ BVHBuildNode* BVHAccel::recursiveBuild(std::vector<Object*> objects)
         auto middling = objects.begin() + (objects.size() / 2);
         auto ending = objects.end();
 
+
         auto leftshapes = std::vector<Object*>(beginning, middling);
         auto rightshapes = std::vector<Object*>(middling, ending);
 
@@ -93,6 +94,7 @@ BVHBuildNode* BVHAccel::recursiveBuild(std::vector<Object*> objects)
     return node;
 }
 
+//a wrapper of recursive function getIntersection
 Intersection BVHAccel::Intersect(const Ray& ray) const
 {
     Intersection isect;
@@ -104,6 +106,54 @@ Intersection BVHAccel::Intersect(const Ray& ray) const
 
 Intersection BVHAccel::getIntersection(BVHBuildNode* node, const Ray& ray) const
 {
+    this->depth += 1;
     // TODO Traverse the BVH to find intersection
+    Intersection inter;
+    // inter.distance = std::numeric_limits<double>::infinity();
+    //应该不可能跳进这个分支，在叶子节点就会结束递归
+    if(node == nullptr){
+        assert(false);
+        return inter;
+    }
+
+    std::array<int, 3> dirIsNeg{
+        int(ray.direction.x > 0), int(ray.direction.y > 0), int(ray.direction.z > 0)
+        };
+    // Vector3f invDir(
+    //     1.0/ray.direction.x, 1.0/ray.direction.y, 1.0/ray.direction.z
+    //     );
+    // bool is_enter, t_enter;
+    // std::tie(is_enter, t_enter) = node->bounds.IntersectP(ray, invDir, dirIsNeg);
+    bool is_enter = node->bounds.IntersectP(ray, ray.direction_inv, dirIsNeg);
+    // if(is_enter){
+
+    //     printf("depth [%2d], is enter = %s\n", this->depth, is_enter ? "True" :  "False");
+    // }
+    if(is_enter){
+        //利用node->object是否为空，来判断我们是否已到达叶子节点
+        if(node->object != nullptr){
+            //leaf node
+            inter = node->object->getIntersection(ray); //可能进入另一颗BVH树
+        }else{
+
+            Intersection inter_left = getIntersection(node->left, ray); 
+            Intersection inter_right = getIntersection(node->right, ray); 
+            if(inter_left.happened){
+                if(inter_left.distance < inter.distance){
+                    inter = inter_left;
+                }
+            }
+            if(inter_right.happened){
+                if(inter_right.distance < inter.distance){
+                    inter = inter_right;
+                }
+            }
+        }
+
+    }
+    //is_enter = false则不用递归
+    //父结点与光线不相交，则子结点也一定不相交
+    this->depth -= 1;
+    return inter;
 
 }

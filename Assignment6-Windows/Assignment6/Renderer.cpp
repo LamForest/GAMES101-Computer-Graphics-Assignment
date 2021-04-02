@@ -28,6 +28,7 @@ void Renderer::Render(const Scene& scene)
             float x = (2 * (i + 0.5) / (float)scene.width - 1) *
                       imageAspectRatio * scale;
             float y = (1 - 2 * (j + 0.5) / (float)scene.height) * scale;
+            // printf("x y = %.4f, %.4f\n", x,y);
             // TODO: Find the x and y positions of the current pixel to get the
             // direction
             //  vector that passes through it.
@@ -35,7 +36,12 @@ void Renderer::Render(const Scene& scene)
             // *scale*, and x (horizontal) variable with the *imageAspectRatio*
 
             // Don't forget to normalize this direction!
-
+            // Vector3f pixel_pos = Vector3f(x, y, -1); // Don't forget to normalize this direction!
+            // Vector3f dir = (pixel_pos - eye_pos);
+            Vector3f dir = Vector3f(x, y, -1);
+            Vector3f normed_dir = normalize(dir);
+            Ray ray(eye_pos, normed_dir); //t = default 0.0
+            framebuffer[m++] = scene.castRay(ray, 0);
         }
         UpdateProgress(j / (float)scene.height);
     }

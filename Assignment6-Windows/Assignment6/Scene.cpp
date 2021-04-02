@@ -55,6 +55,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
     if (depth > this->maxDepth) {
         return Vector3f(0.0,0.0,0.0);
     }
+    //ray是否与场景中任一包围盒碰撞了
     Intersection intersection = Scene::intersect(ray);
     Material *m = intersection.m;
     Object *hitObject = intersection.obj;

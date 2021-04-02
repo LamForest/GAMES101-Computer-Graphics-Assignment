@@ -19,11 +19,11 @@ struct Intersection
         obj =nullptr;
         m=nullptr;
     }
-    bool happened;
-    Vector3f coords;
-    Vector3f normal;
-    double distance;
-    Object* obj;
-    Material* m;
+    bool happened; //？
+    Vector3f coords; //碰撞点的坐标
+    Vector3f normal; //碰撞点的法向量
+    double distance; //t
+    Object* obj; //碰撞的物体
+    Material* m; //碰撞的物体的材质
 };
 #endif //RAYTRACING_INTERSECTION_H

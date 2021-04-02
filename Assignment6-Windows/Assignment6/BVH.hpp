@@ -44,13 +44,16 @@ public:
     const int maxPrimsInNode;
     const SplitMethod splitMethod;
     std::vector<Object*> primitives;
+
+    //Debug
+    mutable int depth = -1;
 };
 
 struct BVHBuildNode {
     Bounds3 bounds;
     BVHBuildNode *left;
     BVHBuildNode *right;
-    Object* object;
+    Object* object; //内节点保证为空，叶子节点保证不为空
 
 public:
     int splitAxis=0, firstPrimOffset=0, nPrimitives=0;
@@ -58,7 +61,7 @@ public:
     BVHBuildNode(){
         bounds = Bounds3();
         left = nullptr;right = nullptr;
-        object = nullptr;
+        object = nullptr; //
     }
 };
 

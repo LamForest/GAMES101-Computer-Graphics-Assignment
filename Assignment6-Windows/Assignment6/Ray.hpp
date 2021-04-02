@@ -8,9 +8,10 @@
 struct Ray{
     //Destination = origin + t*direction
     Vector3f origin;
-    Vector3f direction, direction_inv;
+    Vector3f direction, direction_inv; //_inv有什么用
+
     double t;//transportation time,
-    double t_min, t_max;
+    double t_min, t_max; //啥用？
 
     Ray(const Vector3f& ori, const Vector3f& dir, const double _t = 0.0): origin(ori), direction(dir),t(_t) {
         direction_inv = Vector3f(1./direction.x, 1./direction.y, 1./direction.z);
