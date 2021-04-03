@@ -96,6 +96,31 @@ inline bool Bounds3::IntersectP(const Ray& ray, const Vector3f& invDir,
     // invDir: ray direction(x,y,z), invDir=(1.0/x,1.0/y,1.0/z), use this because Multiply is faster that Division
     // dirIsNeg: ray direction(x,y,z), dirIsNeg=[int(x>0),int(y>0),int(z>0)], use this to simplify your logic
     // TODO test if ray bound intersects
+    //直接拷贝Ass6，有1处修改
+    //TODO
+    //TODO:是否需要考虑invDir = inf的情况？
+    //暂时不考虑太过于细枝末节的东西
+    Vector3f t_pmax = (pMax - ray.origin) * invDir;
+    Vector3f t_pmin = (pMin - ray.origin) * invDir;
+    
+    //需要考虑光线正穿还是反穿
+    //反穿指光线由x,y,z较大，射向xyz较小的地方，
+    // 这样会先经过pMax，然后才是pMin
+    Vector3f t_enter(
+        std::min(t_pmin.x, t_pmax.x),
+        std::min(t_pmin.y, t_pmax.y),
+        std::min(t_pmin.z, t_pmax.z)
+        );
+    Vector3f t_exit(
+        std::max(t_pmin.x, t_pmax.x),
+        std::max(t_pmin.y, t_pmax.y),
+        std::max(t_pmin.z, t_pmax.z)
+        );
+
+    float t_enter_max = std::max({t_enter.x, t_enter.y, t_enter.z});
+    float t_exit_min  = std::min({t_exit.x, t_exit.y, t_exit.z});
+    //修改1：参考http://games-cn.org/forums/topic/graphics-intro-hw7/ 加了 等号和EPSILON
+    return (t_enter_max <= t_exit_min + EPSILON) && (t_exit_min>0);
 
 }
 

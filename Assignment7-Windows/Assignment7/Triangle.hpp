@@ -253,7 +253,15 @@ inline Intersection Triangle::getIntersection(Ray ray)
     t_tmp = dotProduct(e2, qvec) * det_inv;
 
     // TODO find ray triangle intersection
-
+    //直接拷贝Ass6，没有修改
+    if(t_tmp > 0 && u > 0 && v > 0 && 1 - u - v > 0){
+        inter.obj = this;
+        inter.distance = t_tmp;
+        inter.m = this->m;
+        inter.coords = (1-u-v) * this->v0 + u * this->v1 + v * this->v2;
+        inter.normal = this->normal;
+        inter.happened = true;
+    }
     return inter;
 }
 
