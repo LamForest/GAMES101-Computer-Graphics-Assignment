@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/addr2line.exe"
+			"value" : "C:/MinGW/bin/addr2line.exe"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -31,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/ar.exe"
+			"value" : "C:/MinGW/bin/ar.exe"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build"
+			"value" : "h:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -94,18 +94,6 @@
 			"value" : "0"
 		},
 		{
-			"name" : "CMAKE_CC_COMPILER",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "gcc"
-		},
-		{
 			"name" : "CMAKE_COLOR_MAKEFILE",
 			"properties" : 
 			[
@@ -131,7 +119,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/gao_tianlin/New Folder/cmake3_20/bin/cmake.exe"
+			"value" : "C:/Program Files/CMake/bin/cmake.exe"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -143,7 +131,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/gao_tianlin/New Folder/cmake3_20/bin/cpack.exe"
+			"value" : "C:/Program Files/CMake/bin/cpack.exe"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -155,7 +143,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/gao_tianlin/New Folder/cmake3_20/bin/ctest.exe"
+			"value" : "C:/Program Files/CMake/bin/ctest.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -167,11 +155,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/g++.exe"
+			"type" : "FILEPATH",
+			"value" : "C:/MinGW/bin/g++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -187,7 +175,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/gcc-ar.exe"
+			"value" : "C:/MinGW/bin/gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -203,7 +191,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/gcc-ranlib.exe"
+			"value" : "C:/MinGW/bin/gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -311,11 +299,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/gcc.exe"
+			"value" : "C:/MinGW/bin/gcc.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -331,7 +319,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/gcc-ar.exe"
+			"value" : "C:/MinGW/bin/gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_RANLIB",
@@ -347,7 +335,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/gcc-ranlib.exe"
+			"value" : "C:/MinGW/bin/gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS",
@@ -459,7 +447,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/dlltool.exe"
+			"value" : "C:/MinGW/bin/dlltool.exe"
 		},
 		{
 			"name" : "CMAKE_EDIT_COMMAND",
@@ -471,7 +459,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/gao_tianlin/New Folder/cmake3_20/bin/cmake-gui.exe"
+			"value" : "C:/Program Files/CMake/bin/cmake-gui.exe"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -659,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7"
+			"value" : "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -687,7 +675,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/ld.exe"
+			"value" : "C:/MinGW/bin/ld.exe"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -703,7 +691,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/mingw32-make.exe"
+			"value" : "C:/MinGW/bin/mingw32-make.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -799,7 +787,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/nm.exe"
+			"value" : "C:/MinGW/bin/nm.exe"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -827,7 +815,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/objcopy.exe"
+			"value" : "C:/MinGW/bin/objcopy.exe"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -843,7 +831,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/objdump.exe"
+			"value" : "C:/MinGW/bin/objdump.exe"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -907,7 +895,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/ranlib.exe"
+			"value" : "C:/MinGW/bin/ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER",
@@ -923,7 +911,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/windres.exe"
+			"value" : "C:/MinGW/bin/windres.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER_WORKS",
@@ -1031,7 +1019,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/readelf.exe"
+			"value" : "C:/MinGW/bin/readelf.exe"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1043,7 +1031,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/gao_tianlin/New Folder/cmake3_20/share/cmake-3.20"
+			"value" : "C:/Program Files/CMake/share/cmake-3.20"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1251,7 +1239,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "D:/gao_tianlin/gcc/mingw/gcc8.1.0/mingw64/bin/strip.exe"
+			"value" : "C:/MinGW/bin/strip.exe"
 		},
 		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",
@@ -1279,7 +1267,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build"
+			"value" : "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build"
 		},
 		{
 			"name" : "RayTracing_SOURCE_DIR",
@@ -1291,7 +1279,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/gao_tianlin/LamForestGithub/Graphics/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7"
+			"value" : "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7"
 		}
 	],
 	"kind" : "cache",

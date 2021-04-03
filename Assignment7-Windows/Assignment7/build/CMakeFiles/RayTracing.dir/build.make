@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\gao_tianlin\New Folder\cmake3_20\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\gao_tianlin\New Folder\cmake3_20\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7
+CMAKE_SOURCE_DIR = H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build
+CMAKE_BINARY_DIR = H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/RayTracing.dir/depend.make
@@ -71,72 +71,72 @@ include CMakeFiles/RayTracing.dir/flags.make
 CMakeFiles/RayTracing.dir/main.cpp.obj: CMakeFiles/RayTracing.dir/flags.make
 CMakeFiles/RayTracing.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/RayTracing.dir/main.cpp.obj: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RayTracing.dir/main.cpp.obj"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/main.cpp.obj -MF CMakeFiles\RayTracing.dir\main.cpp.obj.d -o CMakeFiles\RayTracing.dir\main.cpp.obj -c D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RayTracing.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/main.cpp.obj -MF CMakeFiles\RayTracing.dir\main.cpp.obj.d -o CMakeFiles\RayTracing.dir\main.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp
 
 CMakeFiles/RayTracing.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/main.cpp.i"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp > CMakeFiles\RayTracing.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp > CMakeFiles\RayTracing.dir\main.cpp.i
 
 CMakeFiles/RayTracing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/main.cpp.s"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp -o CMakeFiles\RayTracing.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp -o CMakeFiles\RayTracing.dir\main.cpp.s
 
 CMakeFiles/RayTracing.dir/Vector.cpp.obj: CMakeFiles/RayTracing.dir/flags.make
 CMakeFiles/RayTracing.dir/Vector.cpp.obj: ../Vector.cpp
 CMakeFiles/RayTracing.dir/Vector.cpp.obj: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RayTracing.dir/Vector.cpp.obj"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Vector.cpp.obj -MF CMakeFiles\RayTracing.dir\Vector.cpp.obj.d -o CMakeFiles\RayTracing.dir\Vector.cpp.obj -c D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RayTracing.dir/Vector.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Vector.cpp.obj -MF CMakeFiles\RayTracing.dir\Vector.cpp.obj.d -o CMakeFiles\RayTracing.dir\Vector.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp
 
 CMakeFiles/RayTracing.dir/Vector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/Vector.cpp.i"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp > CMakeFiles\RayTracing.dir\Vector.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp > CMakeFiles\RayTracing.dir\Vector.cpp.i
 
 CMakeFiles/RayTracing.dir/Vector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/Vector.cpp.s"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp -o CMakeFiles\RayTracing.dir\Vector.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp -o CMakeFiles\RayTracing.dir\Vector.cpp.s
 
 CMakeFiles/RayTracing.dir/Scene.cpp.obj: CMakeFiles/RayTracing.dir/flags.make
 CMakeFiles/RayTracing.dir/Scene.cpp.obj: ../Scene.cpp
 CMakeFiles/RayTracing.dir/Scene.cpp.obj: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/RayTracing.dir/Scene.cpp.obj"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Scene.cpp.obj -MF CMakeFiles\RayTracing.dir\Scene.cpp.obj.d -o CMakeFiles\RayTracing.dir\Scene.cpp.obj -c D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/RayTracing.dir/Scene.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Scene.cpp.obj -MF CMakeFiles\RayTracing.dir\Scene.cpp.obj.d -o CMakeFiles\RayTracing.dir\Scene.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp
 
 CMakeFiles/RayTracing.dir/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/Scene.cpp.i"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp > CMakeFiles\RayTracing.dir\Scene.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp > CMakeFiles\RayTracing.dir\Scene.cpp.i
 
 CMakeFiles/RayTracing.dir/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/Scene.cpp.s"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp -o CMakeFiles\RayTracing.dir\Scene.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp -o CMakeFiles\RayTracing.dir\Scene.cpp.s
 
 CMakeFiles/RayTracing.dir/BVH.cpp.obj: CMakeFiles/RayTracing.dir/flags.make
 CMakeFiles/RayTracing.dir/BVH.cpp.obj: ../BVH.cpp
 CMakeFiles/RayTracing.dir/BVH.cpp.obj: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/RayTracing.dir/BVH.cpp.obj"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/BVH.cpp.obj -MF CMakeFiles\RayTracing.dir\BVH.cpp.obj.d -o CMakeFiles\RayTracing.dir\BVH.cpp.obj -c D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/RayTracing.dir/BVH.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/BVH.cpp.obj -MF CMakeFiles\RayTracing.dir\BVH.cpp.obj.d -o CMakeFiles\RayTracing.dir\BVH.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp
 
 CMakeFiles/RayTracing.dir/BVH.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/BVH.cpp.i"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp > CMakeFiles\RayTracing.dir\BVH.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp > CMakeFiles\RayTracing.dir\BVH.cpp.i
 
 CMakeFiles/RayTracing.dir/BVH.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/BVH.cpp.s"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp -o CMakeFiles\RayTracing.dir\BVH.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp -o CMakeFiles\RayTracing.dir\BVH.cpp.s
 
 CMakeFiles/RayTracing.dir/Renderer.cpp.obj: CMakeFiles/RayTracing.dir/flags.make
 CMakeFiles/RayTracing.dir/Renderer.cpp.obj: ../Renderer.cpp
 CMakeFiles/RayTracing.dir/Renderer.cpp.obj: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/RayTracing.dir/Renderer.cpp.obj"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Renderer.cpp.obj -MF CMakeFiles\RayTracing.dir\Renderer.cpp.obj.d -o CMakeFiles\RayTracing.dir\Renderer.cpp.obj -c D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/RayTracing.dir/Renderer.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Renderer.cpp.obj -MF CMakeFiles\RayTracing.dir\Renderer.cpp.obj.d -o CMakeFiles\RayTracing.dir\Renderer.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp
 
 CMakeFiles/RayTracing.dir/Renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/Renderer.cpp.i"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp > CMakeFiles\RayTracing.dir\Renderer.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp > CMakeFiles\RayTracing.dir\Renderer.cpp.i
 
 CMakeFiles/RayTracing.dir/Renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/Renderer.cpp.s"
-	D:\gao_tianlin\gcc\mingw\gcc8.1.0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp -o CMakeFiles\RayTracing.dir\Renderer.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp -o CMakeFiles\RayTracing.dir\Renderer.cpp.s
 
 # Object files for target RayTracing
 RayTracing_OBJECTS = \
@@ -158,7 +158,7 @@ RayTracing.exe: CMakeFiles/RayTracing.dir/build.make
 RayTracing.exe: CMakeFiles/RayTracing.dir/linklibs.rsp
 RayTracing.exe: CMakeFiles/RayTracing.dir/objects1.rsp
 RayTracing.exe: CMakeFiles/RayTracing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable RayTracing.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable RayTracing.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\RayTracing.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -170,6 +170,6 @@ CMakeFiles/RayTracing.dir/clean:
 .PHONY : CMakeFiles/RayTracing.dir/clean
 
 CMakeFiles/RayTracing.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7 D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7 D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build D:\gao_tianlin\LamForestGithub\Graphics\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles\RayTracing.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7 H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7 H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles\RayTracing.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/RayTracing.dir/depend
 

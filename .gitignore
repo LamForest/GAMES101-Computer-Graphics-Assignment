@@ -2,7 +2,7 @@
 
 *.slo
 *.o
-*.obj
+
 *.a
 *.out
 *.zip
