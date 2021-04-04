@@ -72,7 +72,13 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
     }
     //TODO处理发光物体
     if(p.obj->hasEmit()){
-        return Vector3f(0.0f);
+        if(depth == 0){
+            // printf("eye hit Emiting obj, depth = %d, emit radiance : (%.4f, %.4f, %.4f)\n", depth, p.obj.emit.x, p.emit.y, p.emit.z);
+            return p.m->getEmission();
+        }else{
+            return Vector3f(0.0f);
+        }
+        
     }
     // auto p = inter.coords;
     
@@ -86,7 +92,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
         //是否有物体介于sampled light和p之间
         //可能判断distance即t是否相等更好，
         //但是Intersection light只有coords normal emit是有意义的，其他都没有被设置
-        if(isSamePoint(middle.coords, light.coords)){
+        if(isSamePoint(middle.coords, light.coords)){ 
             auto L_i = light.emit;
             //w_i light -> p 
             Vector3f w_s = normalize(light.coords - p.coords), w_o(ray.direction);
