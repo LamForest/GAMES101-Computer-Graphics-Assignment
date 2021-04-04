@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\RayTracing2.dir/objects.a
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\RayTracing2.dir/objects.a @CMakeFiles\RayTracing2.dir\objects1.rsp
+C:\Program;Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++ -Wl,--whole-archive CMakeFiles\RayTracing2.dir/objects.a -Wl,--no-whole-archive -o RayTracing2.exe -Wl,--out-implib,libRayTracing2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\RayTracing2.dir\linklibs.rsp

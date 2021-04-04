@@ -70,7 +70,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
         //真的会不发生碰撞吗？人眼这面有墙吗？
         return Vector3f(0.0f);
     }
-    //TODO处理发光物体
+    //处理发光物体
     if(p.obj->hasEmit()){
         if(depth == 0){
             // printf("eye hit Emiting obj, depth = %d, emit radiance : (%.4f, %.4f, %.4f)\n", depth, p.obj.emit.x, p.emit.y, p.emit.z);

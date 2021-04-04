@@ -62,7 +62,8 @@
         "functional": "cpp",
         "memory_resource": "cpp",
         "numeric": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "thread": "cpp"
     },
     "cmake.configureOnOpen": true
 }

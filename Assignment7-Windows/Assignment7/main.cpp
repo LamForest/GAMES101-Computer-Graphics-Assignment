@@ -19,6 +19,7 @@ int main(int argc, char** argv)
     int Scene_H = 784;
     int SPP = 16;
     float P_RR = 0.8f;
+    int thread_num = 16;
     if(argc > 1){
         Scene_H = Scene_W = atoi(argv[1]);
         if(argc > 2){
@@ -26,6 +27,9 @@ int main(int argc, char** argv)
         }
         if(argc > 3){
             P_RR = atof(argv[3]);
+        }
+        if(argc > 4){
+            thread_num = atoi(argv[4]);
         }
     }
     Scene scene(Scene_W, Scene_H, P_RR);
@@ -54,12 +58,12 @@ int main(int argc, char** argv)
 
     scene.buildBVH();
 
-    Renderer r;
+    Renderer r; r.thread_num = thread_num;
 
     auto start = std::chrono::system_clock::now();
     r.Render(scene, SPP);
     auto stop = std::chrono::system_clock::now();
-
+    std::cout << "Thread cnt : " << thread_num << ",  ";
     std::cout << "Render complete: \n";
     std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::hours>(stop - start).count() << " hours\n";
     std::cout << "          : " << std::chrono::duration_cast<std::chrono::minutes>(stop - start).count() << " minutes\n";

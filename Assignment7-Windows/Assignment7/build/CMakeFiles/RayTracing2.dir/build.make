@@ -72,71 +72,71 @@ CMakeFiles/RayTracing2.dir/main.cpp.obj: CMakeFiles/RayTracing2.dir/flags.make
 CMakeFiles/RayTracing2.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/RayTracing2.dir/main.cpp.obj: CMakeFiles/RayTracing2.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RayTracing2.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/main.cpp.obj -MF CMakeFiles\RayTracing2.dir\main.cpp.obj.d -o CMakeFiles\RayTracing2.dir\main.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/main.cpp.obj -MF CMakeFiles\RayTracing2.dir\main.cpp.obj.d -o CMakeFiles\RayTracing2.dir\main.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp
 
 CMakeFiles/RayTracing2.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing2.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp > CMakeFiles\RayTracing2.dir\main.cpp.i
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp > CMakeFiles\RayTracing2.dir\main.cpp.i
 
 CMakeFiles/RayTracing2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing2.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp -o CMakeFiles\RayTracing2.dir\main.cpp.s
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\main.cpp -o CMakeFiles\RayTracing2.dir\main.cpp.s
 
 CMakeFiles/RayTracing2.dir/Vector.cpp.obj: CMakeFiles/RayTracing2.dir/flags.make
 CMakeFiles/RayTracing2.dir/Vector.cpp.obj: ../Vector.cpp
 CMakeFiles/RayTracing2.dir/Vector.cpp.obj: CMakeFiles/RayTracing2.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RayTracing2.dir/Vector.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/Vector.cpp.obj -MF CMakeFiles\RayTracing2.dir\Vector.cpp.obj.d -o CMakeFiles\RayTracing2.dir\Vector.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/Vector.cpp.obj -MF CMakeFiles\RayTracing2.dir\Vector.cpp.obj.d -o CMakeFiles\RayTracing2.dir\Vector.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp
 
 CMakeFiles/RayTracing2.dir/Vector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing2.dir/Vector.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp > CMakeFiles\RayTracing2.dir\Vector.cpp.i
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp > CMakeFiles\RayTracing2.dir\Vector.cpp.i
 
 CMakeFiles/RayTracing2.dir/Vector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing2.dir/Vector.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp -o CMakeFiles\RayTracing2.dir\Vector.cpp.s
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Vector.cpp -o CMakeFiles\RayTracing2.dir\Vector.cpp.s
 
 CMakeFiles/RayTracing2.dir/Scene.cpp.obj: CMakeFiles/RayTracing2.dir/flags.make
 CMakeFiles/RayTracing2.dir/Scene.cpp.obj: ../Scene.cpp
 CMakeFiles/RayTracing2.dir/Scene.cpp.obj: CMakeFiles/RayTracing2.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/RayTracing2.dir/Scene.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/Scene.cpp.obj -MF CMakeFiles\RayTracing2.dir\Scene.cpp.obj.d -o CMakeFiles\RayTracing2.dir\Scene.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/Scene.cpp.obj -MF CMakeFiles\RayTracing2.dir\Scene.cpp.obj.d -o CMakeFiles\RayTracing2.dir\Scene.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp
 
 CMakeFiles/RayTracing2.dir/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing2.dir/Scene.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp > CMakeFiles\RayTracing2.dir\Scene.cpp.i
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp > CMakeFiles\RayTracing2.dir\Scene.cpp.i
 
 CMakeFiles/RayTracing2.dir/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing2.dir/Scene.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp -o CMakeFiles\RayTracing2.dir\Scene.cpp.s
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Scene.cpp -o CMakeFiles\RayTracing2.dir\Scene.cpp.s
 
 CMakeFiles/RayTracing2.dir/BVH.cpp.obj: CMakeFiles/RayTracing2.dir/flags.make
 CMakeFiles/RayTracing2.dir/BVH.cpp.obj: ../BVH.cpp
 CMakeFiles/RayTracing2.dir/BVH.cpp.obj: CMakeFiles/RayTracing2.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/RayTracing2.dir/BVH.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/BVH.cpp.obj -MF CMakeFiles\RayTracing2.dir\BVH.cpp.obj.d -o CMakeFiles\RayTracing2.dir\BVH.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/BVH.cpp.obj -MF CMakeFiles\RayTracing2.dir\BVH.cpp.obj.d -o CMakeFiles\RayTracing2.dir\BVH.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp
 
 CMakeFiles/RayTracing2.dir/BVH.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing2.dir/BVH.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp > CMakeFiles\RayTracing2.dir\BVH.cpp.i
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp > CMakeFiles\RayTracing2.dir\BVH.cpp.i
 
 CMakeFiles/RayTracing2.dir/BVH.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing2.dir/BVH.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp -o CMakeFiles\RayTracing2.dir\BVH.cpp.s
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\BVH.cpp -o CMakeFiles\RayTracing2.dir\BVH.cpp.s
 
 CMakeFiles/RayTracing2.dir/Renderer.cpp.obj: CMakeFiles/RayTracing2.dir/flags.make
 CMakeFiles/RayTracing2.dir/Renderer.cpp.obj: ../Renderer.cpp
 CMakeFiles/RayTracing2.dir/Renderer.cpp.obj: CMakeFiles/RayTracing2.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/RayTracing2.dir/Renderer.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/Renderer.cpp.obj -MF CMakeFiles\RayTracing2.dir\Renderer.cpp.obj.d -o CMakeFiles\RayTracing2.dir\Renderer.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing2.dir/Renderer.cpp.obj -MF CMakeFiles\RayTracing2.dir\Renderer.cpp.obj.d -o CMakeFiles\RayTracing2.dir\Renderer.cpp.obj -c H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp
 
 CMakeFiles/RayTracing2.dir/Renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RayTracing2.dir/Renderer.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp > CMakeFiles\RayTracing2.dir\Renderer.cpp.i
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp > CMakeFiles\RayTracing2.dir\Renderer.cpp.i
 
 CMakeFiles/RayTracing2.dir/Renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RayTracing2.dir/Renderer.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp -o CMakeFiles\RayTracing2.dir\Renderer.cpp.s
+	"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S H:\Graphics\101\GAMES101-Computer-Graphics-Assignment\Assignment7-Windows\Assignment7\Renderer.cpp -o CMakeFiles\RayTracing2.dir\Renderer.cpp.s
 
 # Object files for target RayTracing2
 RayTracing2_OBJECTS = \

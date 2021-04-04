@@ -109,13 +109,13 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/RayTracing
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/RayTracing2
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/MinGW/bin/ld.exe
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/MinGW/bin/mingw32-make.exe
+//make program
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -159,7 +159,7 @@ CMAKE_PROJECT_NAME:STATIC=RayTracing2
 CMAKE_RANLIB:FILEPATH=C:/MinGW/bin/ranlib.exe
 
 //RC compiler
-CMAKE_RC_COMPILER:FILEPATH=C:/MinGW/bin/windres.exe
+CMAKE_RC_COMPILER:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/windres.exe
 
 //Flags for Windows Resource Compiler during all build types.
 CMAKE_RC_FLAGS:STRING=
@@ -240,12 +240,6 @@ RayTracing2_BINARY_DIR:STATIC=H:/Graphics/101/GAMES101-Computer-Graphics-Assignm
 
 //Value Computed by CMake
 RayTracing2_SOURCE_DIR:STATIC=H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7
-
-//Value Computed by CMake
-RayTracing_BINARY_DIR:STATIC=H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build
-
-//Value Computed by CMake
-RayTracing_SOURCE_DIR:STATIC=H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7
 
 
 ########################
