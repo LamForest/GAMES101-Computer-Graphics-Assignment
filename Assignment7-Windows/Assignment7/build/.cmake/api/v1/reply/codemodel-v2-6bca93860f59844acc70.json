@@ -26,7 +26,7 @@
 					[
 						0
 					],
-					"name" : "RayTracing",
+					"name" : "RayTracing2",
 					"targetIndexes" : 
 					[
 						0
@@ -37,9 +37,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "RayTracing::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-RayTracing-Debug-18d88e6afa34d74757bb.json",
-					"name" : "RayTracing",
+					"id" : "RayTracing2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-RayTracing2-Debug-717010eb8f30ef046296.json",
+					"name" : "RayTracing2",
 					"projectIndex" : 0
 				}
 			]

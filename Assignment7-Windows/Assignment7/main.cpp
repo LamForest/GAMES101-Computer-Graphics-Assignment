@@ -5,7 +5,6 @@
 #include "Vector.hpp"
 #include "global.hpp"
 #include <chrono>
-
 // In the main function of the program, we create the scene (create objects and
 // lights) as well as set the options for the render (image width and height,
 // maximum recursion depth, field-of-view, etc.). We then call the render
@@ -14,8 +13,22 @@ int main(int argc, char** argv)
 {
 
     // Change the definition here to change resolution
-    Scene scene(784, 784);
-
+    // Scene scene(784, 784);
+    
+    int Scene_W = 784;
+    int Scene_H = 784;
+    int SPP = 16;
+    float P_RR = 0.8f;
+    if(argc > 1){
+        Scene_H = Scene_W = atoi(argv[1]);
+        if(argc > 2){
+            SPP = atoi(argv[2]);
+        }
+        if(argc > 3){
+            P_RR = atof(argv[3]);
+        }
+    }
+    Scene scene(Scene_W, Scene_H, P_RR);
     Material* red = new Material(DIFFUSE, Vector3f(0.0f));
     red->Kd = Vector3f(0.63f, 0.065f, 0.05f);
     Material* green = new Material(DIFFUSE, Vector3f(0.0f));
@@ -44,7 +57,7 @@ int main(int argc, char** argv)
     Renderer r;
 
     auto start = std::chrono::system_clock::now();
-    r.Render(scene);
+    r.Render(scene, SPP);
     auto stop = std::chrono::system_clock::now();
 
     std::cout << "Render complete: \n";

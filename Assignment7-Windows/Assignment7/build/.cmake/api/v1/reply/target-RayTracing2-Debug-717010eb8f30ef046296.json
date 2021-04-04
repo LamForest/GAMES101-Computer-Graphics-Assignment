@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "RayTracing.exe"
+			"path" : "RayTracing2.exe"
 		},
 		{
-			"path" : "RayTracing.pdb"
+			"path" : "RayTracing2.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -63,7 +63,7 @@
 			]
 		}
 	],
-	"id" : "RayTracing::@6890427a1f51a3e7e1df",
+	"id" : "RayTracing2::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -83,8 +83,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "RayTracing",
-	"nameOnDisk" : "RayTracing.exe",
+	"name" : "RayTracing2",
+	"nameOnDisk" : "RayTracing2.exe",
 	"paths" : 
 	{
 		"build" : ".",

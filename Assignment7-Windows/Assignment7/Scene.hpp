@@ -23,8 +23,9 @@ public:
     Vector3f backgroundColor = Vector3f(0.235294, 0.67451, 0.843137);
     int maxDepth = 1;
     float RussianRoulette = 0.8;
+    float P_RR = 0.8f;
 
-    Scene(int w, int h) : width(w), height(h)
+    Scene(int w, int h, float P_RR) : width(w), height(h), P_RR(P_RR)
     {}
 
     void Add(Object *object) { objects.push_back(object); }

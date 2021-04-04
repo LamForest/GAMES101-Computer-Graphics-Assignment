@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named RayTracing
+# Target rules for targets named RayTracing2
 
 # Build rule for target.
-RayTracing: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 RayTracing
-.PHONY : RayTracing
+RayTracing2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 RayTracing2
+.PHONY : RayTracing2
 
 # fast build rule for target.
-RayTracing/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/build
-.PHONY : RayTracing/fast
+RayTracing2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/build
+.PHONY : RayTracing2/fast
 
 BVH.obj: BVH.cpp.obj
 .PHONY : BVH.obj
 
 # target to build an object file
 BVH.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/BVH.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/BVH.cpp.obj
 .PHONY : BVH.cpp.obj
 
 BVH.i: BVH.cpp.i
@@ -141,7 +141,7 @@ BVH.i: BVH.cpp.i
 
 # target to preprocess a source file
 BVH.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/BVH.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/BVH.cpp.i
 .PHONY : BVH.cpp.i
 
 BVH.s: BVH.cpp.s
@@ -149,7 +149,7 @@ BVH.s: BVH.cpp.s
 
 # target to generate assembly for a file
 BVH.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/BVH.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/BVH.cpp.s
 .PHONY : BVH.cpp.s
 
 Renderer.obj: Renderer.cpp.obj
@@ -157,7 +157,7 @@ Renderer.obj: Renderer.cpp.obj
 
 # target to build an object file
 Renderer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Renderer.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Renderer.cpp.obj
 .PHONY : Renderer.cpp.obj
 
 Renderer.i: Renderer.cpp.i
@@ -165,7 +165,7 @@ Renderer.i: Renderer.cpp.i
 
 # target to preprocess a source file
 Renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Renderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Renderer.cpp.i
 .PHONY : Renderer.cpp.i
 
 Renderer.s: Renderer.cpp.s
@@ -173,7 +173,7 @@ Renderer.s: Renderer.cpp.s
 
 # target to generate assembly for a file
 Renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Renderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Renderer.cpp.s
 .PHONY : Renderer.cpp.s
 
 Scene.obj: Scene.cpp.obj
@@ -181,7 +181,7 @@ Scene.obj: Scene.cpp.obj
 
 # target to build an object file
 Scene.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Scene.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Scene.cpp.obj
 .PHONY : Scene.cpp.obj
 
 Scene.i: Scene.cpp.i
@@ -189,7 +189,7 @@ Scene.i: Scene.cpp.i
 
 # target to preprocess a source file
 Scene.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Scene.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Scene.cpp.i
 .PHONY : Scene.cpp.i
 
 Scene.s: Scene.cpp.s
@@ -197,7 +197,7 @@ Scene.s: Scene.cpp.s
 
 # target to generate assembly for a file
 Scene.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Scene.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Scene.cpp.s
 .PHONY : Scene.cpp.s
 
 Vector.obj: Vector.cpp.obj
@@ -205,7 +205,7 @@ Vector.obj: Vector.cpp.obj
 
 # target to build an object file
 Vector.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Vector.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Vector.cpp.obj
 .PHONY : Vector.cpp.obj
 
 Vector.i: Vector.cpp.i
@@ -213,7 +213,7 @@ Vector.i: Vector.cpp.i
 
 # target to preprocess a source file
 Vector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Vector.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Vector.cpp.i
 .PHONY : Vector.cpp.i
 
 Vector.s: Vector.cpp.s
@@ -221,7 +221,7 @@ Vector.s: Vector.cpp.s
 
 # target to generate assembly for a file
 Vector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/Vector.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/Vector.cpp.s
 .PHONY : Vector.cpp.s
 
 main.obj: main.cpp.obj
@@ -229,7 +229,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -237,7 +237,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -245,7 +245,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing.dir\build.make CMakeFiles/RayTracing.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RayTracing2.dir\build.make CMakeFiles/RayTracing2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -256,7 +256,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... RayTracing
+	@echo ... RayTracing2
 	@echo ... BVH.obj
 	@echo ... BVH.i
 	@echo ... BVH.s

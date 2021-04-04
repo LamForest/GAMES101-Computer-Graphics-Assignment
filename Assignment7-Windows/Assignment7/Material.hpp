@@ -159,6 +159,8 @@ float Material::pdf(const Vector3f &wi, const Vector3f &wo, const Vector3f &N){
     }
 }
 
+//给定入射光线wo(方向与入射方向相反，由p指向光源)
+//某个角度的出射光线wi(方向与出射方向相反)的radiance与wo的irradiance的比值
 Vector3f Material::eval(const Vector3f &wi, const Vector3f &wo, const Vector3f &N){
     switch(m_type){
         case DIFFUSE:

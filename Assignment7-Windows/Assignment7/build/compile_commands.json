@@ -1,27 +1,27 @@
 [
 {
   "directory": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build",
-  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\main.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\main.cpp",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing2.dir\\main.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\main.cpp",
   "file": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/main.cpp"
 },
 {
   "directory": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build",
-  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Vector.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\Vector.cpp",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing2.dir\\Vector.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\Vector.cpp",
   "file": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/Vector.cpp"
 },
 {
   "directory": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build",
-  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Scene.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\Scene.cpp",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing2.dir\\Scene.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\Scene.cpp",
   "file": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/Scene.cpp"
 },
 {
   "directory": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build",
-  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\BVH.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\BVH.cpp",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing2.dir\\BVH.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\BVH.cpp",
   "file": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/BVH.cpp"
 },
 {
   "directory": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build",
-  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing.dir\\Renderer.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\Renderer.cpp",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\RayTracing2.dir\\Renderer.cpp.obj -c H:\\Graphics\\101\\GAMES101-Computer-Graphics-Assignment\\Assignment7-Windows\\Assignment7\\Renderer.cpp",
   "file": "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/Renderer.cpp"
 }
 ]

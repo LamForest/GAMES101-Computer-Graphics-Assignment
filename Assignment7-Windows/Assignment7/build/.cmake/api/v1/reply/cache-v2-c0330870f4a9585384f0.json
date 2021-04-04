@@ -879,7 +879,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "RayTracing"
+			"value" : "RayTracing2"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1256,6 +1256,30 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
+		},
+		{
+			"name" : "RayTracing2_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7/build"
+		},
+		{
+			"name" : "RayTracing2_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "H:/Graphics/101/GAMES101-Computer-Graphics-Assignment/Assignment7-Windows/Assignment7"
 		},
 		{
 			"name" : "RayTracing_BINARY_DIR",
