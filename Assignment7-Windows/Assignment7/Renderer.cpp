@@ -45,7 +45,7 @@ void Renderer::Render(const Scene& scene, const int spp)
 
     // save framebuffer to file
     char filename[100];
-    sprintf(filename, "binary_WH_%04d_SPP_%03d_RR_%.2f.ppm", scene.width, spp, scene.P_RR);
+    sprintf(filename, "visible_WH_%04d_SPP_%03d_RR_%.2f.ppm", scene.width, spp, scene.P_RR);
     FILE* fp = fopen(filename, "wb");
     (void)fprintf(fp, "P6\n%d %d\n255\n", scene.width, scene.height);
     for (auto i = 0; i < scene.height * scene.width; ++i) {
