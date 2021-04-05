@@ -117,7 +117,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
             //这里参数ray.directiond的正负无所谓，反正不会用到
             Vector3f w_i = p.m->sample(ray.direction, p.normal); //For diffuse, uniform sample on the hemisphere
             //这里3个参数都无所谓
-            float pdf_semiphere = p.m->pdf(ray.direction, w_i, p.normal); //For diffuse, always 1/2pi
+            float pdf_semiphere = p.m->pdf(w_o, w_i, p.normal); //For diffuse, always 1/2pi
             
             auto L_i = castRay(Ray(p.coords, w_i), depth + 1); //符号?
             Vector3f f_brdf = p.m->eval(w_o, w_i, p.normal);
