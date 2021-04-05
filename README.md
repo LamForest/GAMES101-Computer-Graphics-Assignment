@@ -5,5 +5,6 @@
 * [Assignment4](https://github.com/LamForest/GAMES101-Computer-Graphics-Assignment/blob/main/Assignment4-Windows/code/README.md) 见Assignment4-Windows
 * [Assignment5](https://github.com/LamForest/GAMES101-Computer-Graphics-Assignment/blob/main/Assignment5-Windows/Code/README.md) 见Assignment5-Windows
 * [Assignment6](https://github.com/LamForest/GAMES101-Computer-Graphics-Assignment/blob/main/Assignment6-Windows/Assignment6/README.md) 见Assignment6-Windows 完成时间（基础部分）：2021-04-02
+* [Assignment7](https://github.com/LamForest/GAMES101-Computer-Graphics-Assignment/blob/main/Assignment7-Windows/Assignment7/README.md) 见Assignment7-Windows 完成时间（基础部分+多线程）：2021-04-05
 * [遇到的问题和踩的坑](https://github.com/LamForest/GAMES101-Computer-Graphics-Assignment/blob/main/%E5%9D%91.md)
 
