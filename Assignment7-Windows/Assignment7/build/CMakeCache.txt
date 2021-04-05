@@ -15,10 +15,10 @@
 ########################
 
 //Path to a program.
-CMAKE_ADDR2LINE:FILEPATH=C:/MinGW/bin/addr2line.exe
+CMAKE_ADDR2LINE:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/addr2line.exe
 
 //Path to a program.
-CMAKE_AR:FILEPATH=C:/MinGW/bin/ar.exe
+CMAKE_AR:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/ar.exe
 
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
@@ -26,16 +26,16 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=C:/MinGW/bin/g++.exe
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/x86_64-w64-mingw32-g++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_CXX_COMPILER_AR:FILEPATH=C:/MinGW/bin/gcc-ar.exe
+CMAKE_CXX_COMPILER_AR:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/x86_64-w64-mingw32-gcc-ar.exe
 
 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/MinGW/bin/gcc-ranlib.exe
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/x86_64-w64-mingw32-gcc-ranlib.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -55,16 +55,16 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 //Libraries linked by default with all C++ applications.
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=C:/MinGW/bin/gcc.exe
+//C compiler
+CMAKE_C_COMPILER:STRING=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/x86_64-w64-mingw32-gcc.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_C_COMPILER_AR:FILEPATH=C:/MinGW/bin/gcc-ar.exe
+CMAKE_C_COMPILER_AR:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/x86_64-w64-mingw32-gcc-ar.exe
 
 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_C_COMPILER_RANLIB:FILEPATH=C:/MinGW/bin/gcc-ranlib.exe
+CMAKE_C_COMPILER_RANLIB:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/x86_64-w64-mingw32-gcc-ranlib.exe
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -85,7 +85,7 @@ CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 CMAKE_C_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 
 //Path to a program.
-CMAKE_DLLTOOL:FILEPATH=C:/MinGW/bin/dlltool.exe
+CMAKE_DLLTOOL:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/dlltool.exe
 
 //Flags used by the linker during all build types.
 CMAKE_EXE_LINKER_FLAGS:STRING=
@@ -112,7 +112,7 @@ CMAKE_GNUtoMS:BOOL=OFF
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/RayTracing2
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=C:/MinGW/bin/ld.exe
+CMAKE_LINKER:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/ld.exe
 
 //make program
 CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe
@@ -138,13 +138,13 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=C:/MinGW/bin/nm.exe
+CMAKE_NM:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/nm.exe
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=C:/MinGW/bin/objcopy.exe
+CMAKE_OBJCOPY:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/objcopy.exe
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=C:/MinGW/bin/objdump.exe
+CMAKE_OBJDUMP:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/objdump.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -156,7 +156,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=RayTracing2
 
 //Path to a program.
-CMAKE_RANLIB:FILEPATH=C:/MinGW/bin/ranlib.exe
+CMAKE_RANLIB:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/ranlib.exe
 
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/windres.exe
@@ -177,7 +177,7 @@ CMAKE_RC_FLAGS_RELEASE:STRING=
 CMAKE_RC_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_READELF:FILEPATH=C:/MinGW/bin/readelf.exe
+CMAKE_READELF:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/readelf.exe
 
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
@@ -227,7 +227,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=C:/MinGW/bin/strip.exe
+CMAKE_STRIP:FILEPATH=C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/strip.exe
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
