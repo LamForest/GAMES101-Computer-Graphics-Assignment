@@ -1,0 +1,7 @@
+/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/src/build/CMakeFiles/install/strip.dir
+/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/src/build/CMakeFiles/install/local.dir
+/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/src/build/CMakeFiles/edit_cache.dir
+/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/src/build/CMakeFiles/ropesim.dir
+/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/src/build/CMakeFiles/rebuild_cache.dir
+/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/src/build/CMakeFiles/install.dir
+/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/src/build/CMakeFiles/list_install_components.dir
