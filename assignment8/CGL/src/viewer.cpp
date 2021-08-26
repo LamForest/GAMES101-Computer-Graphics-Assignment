@@ -139,8 +139,15 @@ void Viewer::start() {
   sys_last = system_clock::now();
 
   // run update loop
+  int step = 0;
   while( !glfwWindowShouldClose( window ) ) {
     update();
+    step += 1;
+    // getchar();
+    if(step >= 2000){
+      break;
+    }
+    // break;
   }
 }
 

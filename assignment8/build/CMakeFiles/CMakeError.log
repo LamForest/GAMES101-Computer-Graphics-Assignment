@@ -1,86 +1,55 @@
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/cs18/Desktop/assignment8/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_71993/fast && /usr/bin/make  -f CMakeFiles/cmTC_71993.dir/build.make CMakeFiles/cmTC_71993.dir/build
-make[1]: Entering directory '/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_71993.dir/src.c.o
-/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_71993.dir/src.c.o -c /home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_71993
-/home/cs18/mysoftware/cmake/cmake-3.20.2-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71993.dir/link.txt --verbose=1
-/usr/bin/cc -rdynamic CMakeFiles/cmTC_71993.dir/src.c.o -o cmTC_71993 
-CMakeFiles/cmTC_71993.dir/src.c.o: In function `main':
-src.c:(.text+0x3e): undefined reference to `pthread_create'
-src.c:(.text+0x4a): undefined reference to `pthread_detach'
-src.c:(.text+0x56): undefined reference to `pthread_cancel'
-src.c:(.text+0x67): undefined reference to `pthread_join'
-src.c:(.text+0x7b): undefined reference to `pthread_atfork'
+Run Build Command:"/usr/bin/ninja" "cmTC_6382e"
+[1/2] Building C object CMakeFiles/cmTC_6382e.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_6382e
+FAILED: cmTC_6382e 
+: && /usr/bin/gcc-7   -rdynamic CMakeFiles/cmTC_6382e.dir/CheckSymbolExists.c.o  -o cmTC_6382e   && :
+CMakeFiles/cmTC_6382e.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_71993.dir/build.make:98: recipe for target 'cmTC_71993' failed
-make[1]: *** [cmTC_71993] Error 1
-make[1]: Leaving directory '/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp'
-Makefile:127: recipe for target 'cmTC_71993/fast' failed
-make: *** [cmTC_71993/fast] Error 2
+ninja: build stopped: subcommand failed.
 
-
-Source file was:
+File /home/cs18/Desktop/assignment8/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
 #include <pthread.h>
 
-static void* test_func(void* data)
+int main(int argc, char** argv)
 {
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_cancel(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
   return 0;
+#endif
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp
+Change Dir: /home/cs18/Desktop/assignment8/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_8484c/fast && /usr/bin/make  -f CMakeFiles/cmTC_8484c.dir/build.make CMakeFiles/cmTC_8484c.dir/build
-make[1]: Entering directory '/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8484c.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_8484c.dir/CheckFunctionExists.c.o -c /home/cs18/mysoftware/cmake/cmake-3.20.2-linux-x86_64/share/cmake-3.20/Modules/CheckFunctionExists.c
-Linking C executable cmTC_8484c
-/home/cs18/mysoftware/cmake/cmake-3.20.2-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8484c.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_8484c.dir/CheckFunctionExists.c.o -o cmTC_8484c  -lpthreads 
+Run Build Command:"/usr/bin/ninja" "cmTC_5bb2e"
+[1/2] Building C object CMakeFiles/cmTC_5bb2e.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_5bb2e
+FAILED: cmTC_5bb2e 
+: && /usr/bin/gcc-7 -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_5bb2e.dir/CheckFunctionExists.c.o  -o cmTC_5bb2e  -lpthreads && :
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_8484c.dir/build.make:98: recipe for target 'cmTC_8484c' failed
-make[1]: *** [cmTC_8484c] Error 1
-make[1]: Leaving directory '/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp'
-Makefile:127: recipe for target 'cmTC_8484c/fast' failed
-make: *** [cmTC_8484c/fast] Error 2
-
+ninja: build stopped: subcommand failed.
 
 
 Determining if the function glXGetProcAddressEXT exists failed with the following output:
-Change Dir: /home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp
+Change Dir: /home/cs18/Desktop/assignment8/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_07182/fast && /usr/bin/make  -f CMakeFiles/cmTC_07182.dir/build.make CMakeFiles/cmTC_07182.dir/build
-make[1]: Entering directory '/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_07182.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT -o CMakeFiles/cmTC_07182.dir/CheckFunctionExists.c.o -c /home/cs18/mysoftware/cmake/cmake-3.20.2-linux-x86_64/share/cmake-3.20/Modules/CheckFunctionExists.c
-Linking C executable cmTC_07182
-/home/cs18/mysoftware/cmake/cmake-3.20.2-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07182.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT -rdynamic CMakeFiles/cmTC_07182.dir/CheckFunctionExists.c.o -o cmTC_07182  /usr/lib/x86_64-linux-gnu/libGL.so 
-CMakeFiles/cmTC_07182.dir/CheckFunctionExists.c.o: In function `main':
+Run Build Command:"/usr/bin/ninja" "cmTC_a4653"
+[1/2] Building C object CMakeFiles/cmTC_a4653.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_a4653
+FAILED: cmTC_a4653 
+: && /usr/bin/gcc-7 -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT  -rdynamic CMakeFiles/cmTC_a4653.dir/CheckFunctionExists.c.o  -o cmTC_a4653  /usr/lib/x86_64-linux-gnu/libGL.so && :
+CMakeFiles/cmTC_a4653.dir/CheckFunctionExists.c.o: In function `main':
 CheckFunctionExists.c:(.text+0x10): undefined reference to `glXGetProcAddressEXT'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_07182.dir/build.make:99: recipe for target 'cmTC_07182' failed
-make[1]: *** [cmTC_07182] Error 1
-make[1]: Leaving directory '/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CMakeFiles/CMakeTmp'
-Makefile:127: recipe for target 'cmTC_07182/fast' failed
-make: *** [cmTC_07182/fast] Error 2
-
+ninja: build stopped: subcommand failed.
 
 

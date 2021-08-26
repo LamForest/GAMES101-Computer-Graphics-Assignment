@@ -1,8 +1,8 @@
-# Install script for directory: /home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/CGL
+# Install script for directory: /home/cs18/Desktop/assignment8/CGL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/CGL")
+  set(CMAKE_INSTALL_PREFIX "/home/cs18/Desktop/assignment8/CGL")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -37,16 +37,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CGL/deps/glew/cmake_install.cmake")
-  include("/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CGL/deps/glfw/cmake_install.cmake")
-  include("/home/cs18/101/GAMES101-Computer-Graphics-Assignment/assignment8/build/CGL/src/cmake_install.cmake")
+  include("/home/cs18/Desktop/assignment8/build/CGL/deps/glew/cmake_install.cmake")
+  include("/home/cs18/Desktop/assignment8/build/CGL/deps/glfw/cmake_install.cmake")
+  include("/home/cs18/Desktop/assignment8/build/CGL/src/cmake_install.cmake")
 
 endif()
 

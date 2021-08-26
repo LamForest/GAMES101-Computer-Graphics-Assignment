@@ -9,7 +9,7 @@ using namespace CGL;
 struct Mass {
   Mass(Vector2D position, float mass, bool pinned)
       : start_position(position), position(position), last_position(position),
-        mass(mass), pinned(pinned) {}
+        mass(mass), pinned(pinned), forces(), velocity() {}
 
   float mass;
   bool pinned;
